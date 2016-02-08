@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/game_background_v">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:id="@+id/backStatButton"
+            android:background="@drawable/button"
+            android:textSize="30sp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="57dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Accepted:"
+            android:id="@+id/okText"
+            android:textSize="50sp"
+            android:textColor="#FFF"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/backStatButton"
+            android:layout_alignEnd="@+id/backStatButton"
+            android:layout_marginTop="132dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wrong:"
+            android:id="@+id/wrongText"
+            android:layout_below="@+id/okText"
+            android:layout_alignLeft="@+id/okText"
+            android:layout_alignStart="@+id/okText"
+            android:layout_marginTop="29dp"
+            android:layout_alignRight="@+id/okText"
+            android:layout_alignEnd="@+id/okText"
+            android:textSize="50sp"
+            android:textColor="#FFF"/>
+
+    </RelativeLayout>
+</LinearLayout>

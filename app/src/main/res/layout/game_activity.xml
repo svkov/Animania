@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:orientation="vertical"
+    android:background="@drawable/game_background_v">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/relativeLayout">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:id="@+id/image"
+            android:src="@drawable/ansatsu_kyoushitsu1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:onClick="setAlphaOnScore"
+            android:textSize="35sp"
+            android:textColor="#FFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/scoreView"
+            android:text="0"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text=""
+            android:clickable="true"
+            android:id="@+id/wrongAnswer2"
+            android:background="@drawable/big_button"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentLeft="false"
+            android:layout_below="@+id/wrongAnswer3"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text=""
+            android:id="@+id/rightButton"
+            android:background="@drawable/big_button"
+            android:layout_below="@+id/wrongAnswer1"
+            android:clickable="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text=""
+            android:id="@+id/wrongAnswer1"
+            android:clickable="true"
+            android:background="@drawable/big_button"
+            android:layout_below="@+id/wrongAnswer2"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text=""
+            android:clickable="true"
+            android:id="@+id/wrongAnswer3"
+            android:background="@drawable/big_button"
+            android:layout_below="@+id/image"
+            android:layout_alignLeft="@+id/wrongAnswer2"
+            android:layout_alignStart="@+id/wrongAnswer2"
+            android:textSize="20dp" />
+
+    </RelativeLayout>
+</LinearLayout>

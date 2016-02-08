@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/game_background_v">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:id="@+id/backStatButton"
+            android:background="@drawable/button"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Accepted:"
+            android:id="@+id/okText"
+            android:textSize="40sp"
+            android:textColor="#FFF"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wrong:"
+            android:id="@+id/wrongText"
+            android:layout_below="@+id/okText"
+            android:layout_alignLeft="@+id/okText"
+            android:layout_alignStart="@+id/okText"
+            android:layout_marginTop="29dp"
+            android:layout_alignRight="@+id/okText"
+            android:layout_alignEnd="@+id/okText"
+            android:textSize="40sp"
+            android:textColor="#FFF"/>
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Game"
+            android:id="@+id/newGameButton"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20dp"
+            android:background="@drawable/button"
+            android:onClick="newGame"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Statistics"
+            android:background="@drawable/button"
+            android:id="@+id/statisticsButton"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_below="@+id/newGameButton"
+            android:layout_alignLeft="@+id/newGameButton"
+            android:layout_alignStart="@+id/newGameButton" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:id="@+id/settingsButton"
+            android:layout_gravity="center_horizontal"
+            android:textSize="20sp"
+            android:background="@drawable/button"
+            android:layout_below="@+id/statisticsButton"
+            android:layout_alignLeft="@+id/statisticsButton"
+            android:layout_alignStart="@+id/statisticsButton" />
+
+        <Button
+            android:textSize="20sp"
+            android:background="@drawable/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="High Scores"
+            android:id="@+id/highScoresButton"
+            android:layout_below="@+id/settingsButton"
+            android:layout_alignLeft="@+id/settingsButton"
+            android:onClick="highScore"
+            android:layout_alignStart="@+id/settingsButton" />
+    </RelativeLayout>
+
+</LinearLayout>
