@@ -13,10 +13,12 @@ import android.text.InputType;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -45,17 +47,19 @@ import java.util.Set;
  * 505 strings of code in this class
  * 85 anime added
  * READY: high score
+ *
+ * Upd on 18.04.2016
+ * Ready to continue work
+ * First release is coming
  ***/
 
-/*
- * TO FIX: some anime lost
- */
 public class GameActivity extends Activity {
 
     Button[] buttons = new Button[4];
     ImageView image;
     ImageViewGroup imageViewGroup;
     TextView scoreView;
+    RelativeLayout relativeLayout;
     final static int NUMBER_OF_ANIME = 85; //85
     static int score = 0;
     int seed = -1;
@@ -83,9 +87,7 @@ public class GameActivity extends Activity {
         score = getSharedPreferences("solved_anime", MODE_PRIVATE).getInt("score", 0);
         if(savedInstanceState == null){
             createNewGame();
-        }//else{
-            //onRestoreInstanceState(savedInstanceState);
-        //}
+        }
         scoreView.setText(getScoreString());
     }
 
@@ -114,13 +116,10 @@ public class GameActivity extends Activity {
             buttons[i].setText(savedInstanceState.getString("button" + i));
             String text = (String) buttons[i].getText();
             text = text.toLowerCase();
-            //System.out.println("LOADED " + buttons[i].getText());
             buttons[i].setOnTouchListener(Listeners.hoverBig);
             buttons[i].setClickable(savedInstanceState.getBoolean("clickable" + i));
             boolean clickable = buttons[i].isClickable();
             System.out.println("button[" + i + "] is clickable(" + clickable + ")");
-            //System.out.println("win anime name = "+getWinAnime());
-            //System.out.println("anime name = " + text);
             if(text.equals(getWinAnime()) & clickable){
                 buttons[i].setOnClickListener(right);
             }else{
@@ -185,9 +184,11 @@ public class GameActivity extends Activity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        //startAnimation();
                         v.clearAnimation();
                         Intent intent = new Intent(GameActivity.this, GameActivity.class);
                         startActivity(intent);
+                        //overridePendingTransition(Intent.FLAG_ACTIVITY_NO_ANIMATION, R.anim.uip_uip);
                         finish();
                     }
                 }, anim.getDuration());
@@ -201,7 +202,7 @@ public class GameActivity extends Activity {
             public void onClick(final View v) {
                 v.setClickable(false);
                 v.setBackgroundResource(R.drawable.lose);
-                score -= 5;
+                score -= 10;
                 scoreView.setText(getScoreString());
                 getSharedPreferences("solved_anime", MODE_PRIVATE).edit().putInt("wrong", getSharedPreferences("solved_anime", MODE_PRIVATE).getInt("wrong", 0)+1).commit();
                 mediaPlayer = MediaPlayer.create(GameActivity.this, R.raw.wrong);
@@ -219,14 +220,35 @@ public class GameActivity extends Activity {
         };
     }
 
+    private void startAnimation(){
+        int numberOfViews = relativeLayout.getChildCount();
+        for(int i = 0; i < numberOfViews; i++){
+            View v = relativeLayout.getChildAt(i);
+            Animation anim = AnimationUtils.loadAnimation(this, R.anim.uip_uip);
+            anim.setDuration(1000);
+            v.startAnimation(anim);
+        }
+    }
 
     private void initViews(){
+        relativeLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
         scoreView = (TextView) findViewById(R.id.scoreView);
         image = (ImageView) findViewById(R.id.image);
         buttons[0] = (Button) findViewById(R.id.rightButton);
         buttons[1] =  (Button) findViewById(R.id.wrongAnswer1);
         buttons[2] = (Button) findViewById(R.id.wrongAnswer2);
         buttons[3] = (Button) findViewById(R.id.wrongAnswer3);
+        startAnimation();
+    }
+
+    private void endAnimation(){
+        int numberOfViews = relativeLayout.getChildCount();
+        for(int i = 0; i < numberOfViews; i++){
+            View v = relativeLayout.getChildAt(i);
+            Animation anim = AnimationUtils.loadAnimation(this, R.anim.piu_piu);
+            anim.setDuration(1000);
+            v.startAnimation(anim);
+        }
     }
 
     @Override
@@ -236,6 +258,7 @@ public class GameActivity extends Activity {
     @Override
     public void onStop() {
         super.onStop();
+        endAnimation();
         System.out.println("Activity has been stoped and destroyed");
     }
 
@@ -265,6 +288,16 @@ public class GameActivity extends Activity {
         System.out.println("Activity has been restarted");
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        /*int numberOfViews = relativeLayout.getChildCount();
+        for(int i = 0; i < numberOfViews; i++){
+            View v = relativeLayout.getChildAt(i);
+            Animation anim = AnimationUtils.loadAnimation(this, R.anim.piu_piu);
+            v.startAnimation(anim);
+        }*/
+    }
     private void newGame(){
         System.out.println("newGame()");
         makeDialog();
@@ -487,7 +520,7 @@ public class GameActivity extends Activity {
     }
 
     private void setSwipe(){
-        final int delta = 50;
+        final int delta = 10;
         image.setOnTouchListener(new View.OnTouchListener() {
             float x1 = 0, y1 = 0;
             @Override
@@ -502,10 +535,10 @@ public class GameActivity extends Activity {
                         break;
                     case MotionEvent.ACTION_UP:
                         x2 = event.getX();
-                        if(x2 - x1 > delta){
+                        if(x1 - x2 > delta){
                             rightSwipe();
                             return true;
-                        } else if(x1 - x2 > delta){
+                        } else if(x2 - x1 > delta){
                             leftSwipe();
                             return true;
                         }
@@ -522,6 +555,28 @@ public class GameActivity extends Activity {
         int img;
         if(imageViewGroup.hasNextImage()){
             img = imageViewGroup.getNextImage();
+            final int finalImg = img;
+            Animation anim = AnimationUtils.loadAnimation(this, R.anim.uip_uip);
+            anim.setDuration(200);
+            anim.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    Animation anim2 = AnimationUtils.loadAnimation(GameActivity.this, R.anim.piu_piu);
+                    anim2.setDuration(200);
+                    image.setImageResource(finalImg);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+            image.setAnimation(anim);
         }else{
             return;
         }
@@ -532,6 +587,28 @@ public class GameActivity extends Activity {
         int img;
         if(imageViewGroup.hasPreviousImage()){
             img = imageViewGroup.getPreviousImage();
+            final int finalImg = img;
+            Animation anim = AnimationUtils.loadAnimation(this, R.anim.uip_uip);
+            anim.setDuration(200);
+            anim.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    Animation anim2 = AnimationUtils.loadAnimation(GameActivity.this, R.anim.piu_piu);
+                    anim2.setDuration(200);
+                    image.setImageResource(finalImg);
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {
+
+                }
+            });
+            image.setAnimation(anim);
         }else{
             return;
         }

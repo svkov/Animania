@@ -14,7 +14,7 @@ public class ImageViewGroup {
         this.img2 = img2;
         this.img3 = img3;
         this.img4 = img4;
-        index = 4;
+        index = 1;
     }
 
     public ImageViewGroup(int img[], int index){
