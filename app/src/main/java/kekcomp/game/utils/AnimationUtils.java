@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.animation.Animation;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import kekcomp.game.R;
@@ -23,6 +24,18 @@ public class AnimationUtils {
         fadeOut = android.view.animation.AnimationUtils.loadAnimation(context, R.anim.fade_out);
     }
 
+    public void setFadeInDuration(int mills){
+        fadeIn.setDuration(mills);
+    }
+
+    public long getFadeInDuration(){
+        return fadeIn.getDuration();
+    }
+
+    public void setFadeOutDuration(int mills){
+        fadeOut.setDuration(mills);
+    }
+
     public void fadeInAllLayoutChildren(RelativeLayout relativeLayout){
         int numberOfViews = relativeLayout.getChildCount();
         for(int i = 0; i < numberOfViews; i++){
@@ -33,6 +46,24 @@ public class AnimationUtils {
     }
 
     public void fadeOutAllLayoutChildren(RelativeLayout relativeLayout){
+        int numberOfViews = relativeLayout.getChildCount();
+        for(int i = 0; i < numberOfViews; i++){
+            View v = relativeLayout.getChildAt(i);
+            fadeOut.setDuration(1000);
+            v.startAnimation(fadeOut);
+        }
+    }
+
+    public void fadeInAllLayoutChildren(LinearLayout relativeLayout){
+        int numberOfViews = relativeLayout.getChildCount();
+        for(int i = 0; i < numberOfViews; i++){
+            View v = relativeLayout.getChildAt(i);
+            fadeIn.setDuration(1000);
+            v.startAnimation(fadeIn);
+        }
+    }
+
+    public void fadeOutAllLayoutChildren(LinearLayout relativeLayout){
         int numberOfViews = relativeLayout.getChildCount();
         for(int i = 0; i < numberOfViews; i++){
             View v = relativeLayout.getChildAt(i);

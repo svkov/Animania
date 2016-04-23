@@ -10,6 +10,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputType;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -17,6 +18,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -168,6 +170,23 @@ public class GameActivity extends Activity {
         setValidNames(names);
     }
 
+    @Override
+    public boolean onKeyDown(int keycode, KeyEvent e) {
+        switch(keycode) {
+            case KeyEvent.KEYCODE_BACK:
+                animationUtils.fadeOutAllLayoutChildren(relativeLayout);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        finish();
+                    }
+                }, animationUtils.getFadeInDuration()-150);
+                return true;
+        }
+
+        return super.onKeyDown(keycode, e);
+    }
+
     private void initListeners(){
         right = new View.OnClickListener() {
             Animation anim = AnimationUtils.loadAnimation(GameActivity.this, R.anim.fade_out);
@@ -285,17 +304,17 @@ public class GameActivity extends Activity {
         sharedPreferences = getSharedPreferences("high_score", MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(name, score);
-        editor.commit();
+        editor.apply();
         System.out.println("SCORE: " + sharedPreferences.getInt("score", -1));
     }
 
     private void resetGame(){
         System.out.println("resetGame()");
         sharedPreferences = getSharedPreferences("solved_anime", MODE_PRIVATE);
-        sharedPreferences.edit().clear().commit();
+        sharedPreferences.edit().clear().apply();
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
-        editor.commit();
+        editor.apply();
     }
 
     private boolean checkHighScore(){
@@ -313,7 +332,7 @@ public class GameActivity extends Activity {
         if(map.size() < 10) {
             return true;
         }else{
-            for (int i = 0; i < scoreArray.length; i++) {
+            for(int i = 0; i < scoreArray.length; i++) {
                 if (score > (int) scoreArray[i]) {
                     return true;
                 }
@@ -325,7 +344,7 @@ public class GameActivity extends Activity {
     private String makeDialog(){
 
         final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_NORMAL);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(input);
@@ -354,7 +373,7 @@ public class GameActivity extends Activity {
         editor.putInt(name + "_int", seed);
         editor.putInt("right", sharedPreferences.getInt("right", 0)+1);
         editor.putInt("score", score);
-        editor.commit();
+        editor.apply();
     }
 
     private String getWinAnime(){
@@ -401,9 +420,7 @@ public class GameActivity extends Activity {
         while(n == seed){
             n = r.nextInt(NUMBER_OF_ANIME-1);
         }
-        int a = n,
-                b = 0,
-                c = -2;
+        int a = n, b, c;
         while(n == a || n == seed){
             n = r.nextInt(NUMBER_OF_ANIME-1);
         }
@@ -419,7 +436,7 @@ public class GameActivity extends Activity {
     }
 
     private int generateSeed(){
-        int seed = 0;
+        int seed;
         sharedPreferences = getSharedPreferences("solved_anime", MODE_PRIVATE);
         Map<String, ?> animeList = sharedPreferences.getAll();
         List<Integer> ints = new ArrayList<>();

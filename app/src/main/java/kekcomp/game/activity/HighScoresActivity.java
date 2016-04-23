@@ -1,9 +1,12 @@
 package kekcomp.game.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.view.KeyEvent;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -13,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import kekcomp.game.R;
+import kekcomp.game.utils.AnimationUtils;
 
 /**
  * Created by svyatoslav on 1/26/16.
@@ -21,6 +25,7 @@ public class HighScoresActivity extends Activity {
     HashMap<String, Integer> hs;
     TableLayout tableLayout;
     final static int rows = 10;
+    AnimationUtils animation;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -55,6 +60,31 @@ public class HighScoresActivity extends Activity {
                 break;
             }
         }
+        animation = new AnimationUtils(tableLayout);
+        animation.setFadeInDuration(1000);
+        animation.fadeInAllLayoutChildren(tableLayout);
+    }
+
+    @Override
+    public boolean onKeyDown(int keycode, KeyEvent e) {
+        switch(keycode) {
+            case KeyEvent.KEYCODE_BACK:
+                animation.fadeOutAllLayoutChildren(tableLayout);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        finish();
+                    }
+                }, animation.getFadeInDuration()-150);
+                return true;
+        }
+
+        return super.onKeyDown(keycode, e);
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
     }
 
     private int findMax(){

@@ -8,25 +8,23 @@ import java.util.Set;
  */
 public class SetUtils {
 
-    public SetUtils(){}
-
     // объединение двух множеств
-    private static Set<Integer> union(Set<Integer> a, Set<Integer> b) {
-        Set<Integer> result = new HashSet<Integer>(a);
+    private static Set<Integer> union(HashSet<Integer> a, HashSet<Integer> b) {
+        Set<Integer> result = new HashSet<>(a);
         result.addAll(b);
         return result;
     }
 
     // пересечение двух множеств
-    private static Set<Integer> intersection(Set<Integer> a, Set<Integer> b) {
-        Set<Integer> result = new HashSet<Integer>(a);
+    private static Set<Integer> intersection(HashSet<Integer> a, HashSet<Integer> b) {
+        Set<Integer> result = new HashSet<>(a);
         result.retainAll(b);
         return result;
     }
 
     // разность двух множеств
     public static Set<Integer> complement(Set<Integer> a, Set<Integer> b) {
-        Set<Integer> result = new HashSet<Integer>();
+        Set<Integer> result = new HashSet<>();
         for(Integer i : a) {
             if(!b.contains(i)) {
                 result.add(i);
