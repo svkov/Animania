@@ -8,27 +8,27 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MenuActivity">
+        <activity android:name=".activity.MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".GameActivity"
+            android:name=".activity.GameActivity"
             android:label="Game"
-            android:parentActivityName=".MenuActivity">
+            android:parentActivityName=".activity.MenuActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MenuActivity"/>
+                android:value=".activity.MenuActivity"/>
         </activity>
         <activity
-            android:name=".HighScoresActivity"
+            android:name=".activity.HighScoresActivity"
             android:label="High Scores"
-            android:parentActivityName=".MenuActivity">
+            android:parentActivityName=".activity.MenuActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MenuActivity"/>
+                android:value=".activity.MenuActivity"/>
         </activity>
     </application>
 

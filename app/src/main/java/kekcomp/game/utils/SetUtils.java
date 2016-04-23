@@ -1,4 +1,4 @@
-package kekcomp.game;
+package kekcomp.game.utils;
 
 import java.util.HashSet;
 import java.util.Set;

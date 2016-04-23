@@ -1,7 +1,9 @@
-package kekcomp.game;
+package kekcomp.game.utils;
 
 import android.view.MotionEvent;
 import android.view.View;
+
+import kekcomp.game.R;
 
 /**
  * Created by svyatoslav on 1/15/16.

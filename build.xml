@@ -1,0 +1,4 @@
+<target name="-crunch">
+    <echo message="Skipping PNG optimization"/>
+</target>
+

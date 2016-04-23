@@ -1,4 +1,4 @@
-package kekcomp.game;
+package kekcomp.game.activity;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
@@ -11,6 +11,8 @@ import android.view.ViewGroup.LayoutParams;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import kekcomp.game.R;
 
 /**
  * Created by svyatoslav on 1/26/16.
