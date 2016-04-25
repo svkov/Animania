@@ -57,6 +57,10 @@ import kekcomp.game.utils.SetUtils;
  * Upd on 18.04.2016
  * Ready to continue work
  * First release is coming
+ *
+ * Upd on 25.04.2016
+ * A lot of bugs and hate
+ * 115 anime added
  ***/
 
 public class GameActivity extends Activity {

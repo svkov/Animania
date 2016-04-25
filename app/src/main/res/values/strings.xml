@@ -193,11 +193,11 @@
         </string-array>
 	</item>
 	<item>
-		<string-array name="erog_proxy">
-            <item>erog_proxy3</item>
-            <item>erog_proxy2</item>
-            <item>erog_proxy4</item>
-            <item>erog_proxy1</item>
+		<string-array name="ergo_proxy">
+            <item>ergo_proxy3</item>
+            <item>ergo_proxy2</item>
+            <item>ergo_proxy4</item>
+            <item>ergo_proxy1</item>
         </string-array>
 	</item>
 	<item>
