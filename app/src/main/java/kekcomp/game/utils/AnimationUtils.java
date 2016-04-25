@@ -37,6 +37,7 @@ public class AnimationUtils {
     }
 
     public void fadeInAllLayoutChildren(RelativeLayout relativeLayout){
+        System.out.println(relativeLayout.getChildCount());
         int numberOfViews = relativeLayout.getChildCount();
         for(int i = 0; i < numberOfViews; i++){
             View v = relativeLayout.getChildAt(i);

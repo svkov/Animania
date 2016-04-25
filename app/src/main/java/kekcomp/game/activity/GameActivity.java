@@ -67,7 +67,7 @@ public class GameActivity extends Activity {
     TextView scoreView;
     RelativeLayout relativeLayout;
     kekcomp.game.utils.AnimationUtils animationUtils;
-    final static int NUMBER_OF_ANIME = 85; //85
+    final static int NUMBER_OF_ANIME = 115; //115
     static int score = 0;
     int seed = -1;
     String[] names;

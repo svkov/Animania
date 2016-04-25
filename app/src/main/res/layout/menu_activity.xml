@@ -3,61 +3,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background_v">
+    android:background="@drawable/background"
+    android:id="@+id/menuLayout">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/menuLayout">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:text="New Game"
+        android:background="@drawable/button"
+        android:id="@+id/newGameButton"
+        android:textSize="20sp"
+        android:onClick="newGame"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:layout_marginTop="70dp" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Game"
-            android:id="@+id/newGameButton"
-            android:layout_gravity="center_horizontal"
-            android:textSize="20sp"
-            android:background="@drawable/button"
-            android:onClick="newGame"
-            android:layout_marginTop="62dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/highScoresButton"
-            android:layout_alignStart="@+id/highScoresButton" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:text="Statistics"
+        android:id="@+id/statisticsButton"
+        android:textSize="20sp"
+        android:background="@drawable/button"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Statistics"
-            android:background="@drawable/button"
-            android:id="@+id/statisticsButton"
-            android:textSize="20sp"
-            android:layout_gravity="center_horizontal"
-            android:layout_below="@+id/newGameButton"
-            android:layout_alignLeft="@+id/newGameButton"
-            android:layout_alignStart="@+id/newGameButton" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:text="Settings"
+        android:id="@+id/settingsButton"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:background="@drawable/button"
+        android:textAlignment="center"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Settings"
-            android:id="@+id/settingsButton"
-            android:layout_gravity="center_horizontal"
-            android:textSize="20sp"
-            android:background="@drawable/button"
-            android:layout_below="@+id/statisticsButton"
-            android:layout_alignLeft="@+id/statisticsButton"
-            android:layout_alignStart="@+id/statisticsButton" />
-
-        <Button
-            android:textSize="20sp"
-            android:background="@drawable/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="High Scores"
-            android:id="@+id/highScoresButton"
-            android:onClick="highScore"
-            android:layout_below="@+id/settingsButton"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
+    <Button
+        android:textSize="20sp"
+        android:background="@drawable/button"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:text="High Scores"
+        android:id="@+id/highScoresButton"
+        android:onClick="highScore"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

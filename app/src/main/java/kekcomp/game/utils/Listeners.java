@@ -14,7 +14,6 @@ public class Listeners {
         public boolean onTouch(View v, MotionEvent event) {
             switch (event.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    //System.out.println("Pressed");
                     v.setBackgroundResource(R.drawable.hover);
                     break;
                 case MotionEvent.ACTION_MOVE:
@@ -35,7 +34,6 @@ public class Listeners {
         public boolean onTouch(View v, MotionEvent event) {
             switch (event.getAction()){
                 case MotionEvent.ACTION_DOWN:
-                    //System.out.println("Pressed");
                     v.setBackgroundResource(R.drawable.hover_small);
                     break;
                 case MotionEvent.ACTION_MOVE:

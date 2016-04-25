@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -20,11 +21,18 @@ import kekcomp.game.utils.Listeners;
 /**
  * Created by svyatoslav on 09.01.2016.
  */
+
+/*try{
+
+        }catch (NullPointerException e){
+            e.printStackTrace();
+        }*/
+
 public class MenuActivity extends Activity {
 
     AnimationUtils animationUtils;
 
-    private RelativeLayout relativeLayout;
+    private LinearLayout linearLayout;
 
     private Button newGameButton;
     private Button settingsButton;
@@ -38,13 +46,16 @@ public class MenuActivity extends Activity {
     protected void onCreate(final Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_activity);
-        relativeLayout = (RelativeLayout) findViewById(R.id.menuLayout);
+        linearLayout = (LinearLayout) findViewById(R.id.menuLayout);
         newGameButton = (Button) findViewById(R.id.newGameButton);
         settingsButton = (Button) findViewById(R.id.settingsButton);
         newGameButton.setOnTouchListener(Listeners.hoverSmall);
         highScoreButton = (Button) findViewById(R.id.highScoresButton);
         highScoreButton.setOnTouchListener(Listeners.hoverSmall);
         settingsButton.setOnTouchListener(Listeners.hoverSmall);
+        statButton = (Button) findViewById(R.id.statisticsButton);
+        animationUtils = new AnimationUtils(linearLayout);
+        animationUtils.fadeInAllLayoutChildren(linearLayout);
         settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,7 +63,7 @@ public class MenuActivity extends Activity {
                 final RelativeLayout resetLayout = (RelativeLayout) findViewById(R.id.resetLayout);
                 backButton = (Button) findViewById(R.id.backButton);
                 resetButton = (Button) findViewById(R.id.reset);
-                final AnimationUtils animationUtils = new AnimationUtils(resetLayout);
+                //final AnimationUtils animationUtils = new AnimationUtils(resetLayout);
                 animationUtils.fadeInAllLayoutChildren(resetLayout);
                 resetButton.setOnTouchListener(Listeners.hoverSmall);
                 backButton.setOnTouchListener(Listeners.hoverSmall);
@@ -76,7 +87,6 @@ public class MenuActivity extends Activity {
                 });
             }
         });
-        statButton = (Button) findViewById(R.id.statisticsButton);
         statButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +94,7 @@ public class MenuActivity extends Activity {
                 final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.statisticsLayout);
                 TextView accepted = (TextView) findViewById(R.id.okText);
                 TextView wrong = (TextView) findViewById(R.id.wrongText);
-                final AnimationUtils animationUtils = new AnimationUtils(relativeLayout);
+                //final AnimationUtils animationUtils = new AnimationUtils(relativeLayout);
                 animationUtils.fadeInAllLayoutChildren(relativeLayout);
                 accepted.setText(generateStatString(accepted));
                 wrong.setText(generateStatString(wrong));
@@ -105,8 +115,6 @@ public class MenuActivity extends Activity {
             }
         });
         statButton.setOnTouchListener(Listeners.hoverSmall);
-        animationUtils = new AnimationUtils(relativeLayout);
-        animationUtils.fadeInAllLayoutChildren(relativeLayout);
     }
 
     private String generateStatString(TextView tv){
@@ -128,7 +136,7 @@ public class MenuActivity extends Activity {
     public boolean onKeyDown(int keycode, KeyEvent e) {
         switch(keycode) {
             case KeyEvent.KEYCODE_BACK:
-                animationUtils.fadeOutAllLayoutChildren(relativeLayout);
+                animationUtils.fadeOutAllLayoutChildren(linearLayout);
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {

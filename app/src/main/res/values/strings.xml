@@ -26,6 +26,14 @@
         </string-array>
 	</item>
 	<item>
+		<string-array name="pandora_hearts">
+            <item>pandora_hearts2</item>
+            <item>pandora_hearts4</item>
+            <item>pandora_hearts3</item>
+            <item>pandora_hearts1</item>
+        </string-array>
+	</item>
+	<item>
 		<string-array name="azumanga_daioh">
             <item>azumanga_daioh4</item>
             <item>azumanga_daioh2</item>
@@ -39,6 +47,14 @@
             <item>evangelion2</item>
             <item>evangelion1</item>
             <item>evangelion4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="k-on">
+            <item>k-on4</item>
+            <item>k-on3</item>
+            <item>k-on1</item>
+            <item>k-on2</item>
         </string-array>
 	</item>
 	<item>
@@ -84,7 +100,6 @@
 	<item>
 		<string-array name="kore_wa_zombi_desu_ka">
             <item>kore_wa_zombi_desu_ka3</item>
-            <item>kore_wa_zombi_desu_ka4</item>
             <item>kore_wa_zombi_desu_ka1</item>
             <item>kore_wa_zombi_desu_ka2</item>
         </string-array>
@@ -122,11 +137,11 @@
         </string-array>
 	</item>
 	<item>
-		<string-array name="ansatsu_kyoushitsu">
-            <item>ansatsu_kyoushitsu4</item>
-            <item>ansatsu_kyoushitsu2</item>
-            <item>ansatsu_kyoushitsu1</item>
-            <item>ansatsu_kyoushitsu3</item>
+		<string-array name="corpse_party_tortured_souls">
+            <item>corpse_party_tortured_souls2</item>
+            <item>corpse_party_tortured_souls1</item>
+            <item>corpse_party_tortured_souls4</item>
+            <item>corpse_party_tortured_souls3</item>
         </string-array>
 	</item>
 	<item>
@@ -146,11 +161,27 @@
         </string-array>
 	</item>
 	<item>
+		<string-array name="non_non_biyori">
+            <item>non_non_biyori2</item>
+            <item>non_non_biyori4</item>
+            <item>non_non_biyori3</item>
+            <item>non_non_biyori1</item>
+        </string-array>
+	</item>
+	<item>
 		<string-array name="black_lagoon">
             <item>black_lagoon3</item>
             <item>black_lagoon4</item>
             <item>black_lagoon2</item>
             <item>black_lagoon1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="ano_hi_mita_hana_no_namae_o_bokutachi_wa_mada_shiranai">
+            <item>ano_hi_mita_hana_no_namae_o_bokutachi_wa_mada_shiranai3</item>
+            <item>ano_hi_mita_hana_no_namae_o_bokutachi_wa_mada_shiranai1</item>
+            <item>ano_hi_mita_hana_no_namae_o_bokutachi_wa_mada_shiranai2</item>
+            <item>ano_hi_mita_hana_no_namae_o_bokutachi_wa_mada_shiranai4</item>
         </string-array>
 	</item>
 	<item>
@@ -162,19 +193,11 @@
         </string-array>
 	</item>
 	<item>
-		<string-array name="seven_deadly_sins">
-            <item>seven_deadly_sins1</item>
-            <item>seven_deadly_sins4</item>
-            <item>seven_deadly_sins3</item>
-            <item>seven_deadly_sins2</item>
-        </string-array>
-	</item>
-	<item>
-		<string-array name="ergo_proxy">
-            <item>ergo_proxy3</item>
-            <item>ergo_proxy2</item>
-            <item>ergo_proxy4</item>
-            <item>ergo_proxy1</item>
+		<string-array name="erog_proxy">
+            <item>erog_proxy3</item>
+            <item>erog_proxy2</item>
+            <item>erog_proxy4</item>
+            <item>erog_proxy1</item>
         </string-array>
 	</item>
 	<item>
@@ -186,6 +209,14 @@
         </string-array>
 	</item>
 	<item>
+		<string-array name="chuunibyou_demo_koi_ga_shitai!">
+            <item>chuunibyou_demo_koi_ga_shitai!2</item>
+            <item>chuunibyou_demo_koi_ga_shitai!3</item>
+            <item>chuunibyou_demo_koi_ga_shitai!4</item>
+            <item>chuunibyou_demo_koi_ga_shitai!1</item>
+        </string-array>
+	</item>
+	<item>
 		<string-array name="melancholy_of_haruhi_suzumiya">
             <item>melancholy_of_haruhi_suzumiya1</item>
             <item>melancholy_of_haruhi_suzumiya3</item>
@@ -194,11 +225,11 @@
         </string-array>
 	</item>
 	<item>
-		<string-array name="jormungand">
-            <item>jormungand3</item>
-            <item>jormungand2</item>
-            <item>jormungand1</item>
-            <item>jormungand4</item>
+		<string-array name="maken-ki">
+            <item>maken-ki3</item>
+            <item>maken-ki2</item>
+            <item>maken-ki4</item>
+            <item>maken-ki1</item>
         </string-array>
 	</item>
 	<item>
@@ -226,11 +257,27 @@
         </string-array>
 	</item>
 	<item>
+		<string-array name="mm!">
+            <item>mm!2</item>
+            <item>mm!1</item>
+            <item>mm!4</item>
+            <item>mm!3</item>
+        </string-array>
+	</item>
+	<item>
 		<string-array name="ghost_hound">
             <item>ghost_hound1</item>
             <item>ghost_hound4</item>
             <item>ghost_hound2</item>
             <item>ghost_hound3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="gosick">
+            <item>gosick3</item>
+            <item>gosick2</item>
+            <item>gosick1</item>
+            <item>gosick4</item>
         </string-array>
 	</item>
 	<item>
@@ -242,11 +289,35 @@
         </string-array>
 	</item>
 	<item>
+		<string-array name="accel_world">
+            <item>accel_world4</item>
+            <item>accel_world2</item>
+            <item>accel_world1</item>
+            <item>accel_world3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="ansatsu_kyoushitsu">
+            <item>ansatsu_kyoushitsu4</item>
+            <item>ansatsu_kyoushitsu2</item>
+            <item>ansatsu_kyoushitsu1</item>
+            <item>ansatsu_kyoushitsu3</item>
+        </string-array>
+	</item>
+	<item>
 		<string-array name="slayers">
             <item>slayers2</item>
             <item>slayers3</item>
             <item>slayers1</item>
             <item>slayers4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="working">
+            <item>working4</item>
+            <item>working3</item>
+            <item>working2</item>
+            <item>working1</item>
         </string-array>
 	</item>
 	<item>
@@ -279,6 +350,14 @@
             <item>hitsugi_no_chaika4</item>
             <item>hitsugi_no_chaika3</item>
             <item>hitsugi_no_chaika1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="school_days">
+            <item>school_days4</item>
+            <item>school_days2</item>
+            <item>school_days1</item>
+            <item>school_days3</item>
         </string-array>
 	</item>
 	<item>
@@ -330,6 +409,22 @@
         </string-array>
 	</item>
 	<item>
+		<string-array name="idolmaster">
+            <item>idolmaster1</item>
+            <item>idolmaster4</item>
+            <item>idolmaster3</item>
+            <item>idolmaster2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="k_project">
+            <item>k_project2</item>
+            <item>k_project3</item>
+            <item>k_project4</item>
+            <item>k_project1</item>
+        </string-array>
+	</item>
+	<item>
 		<string-array name="pokemon">
             <item>pokemon2</item>
             <item>pokemon1</item>
@@ -343,6 +438,14 @@
             <item>dark_butler2</item>
             <item>dark_butler3</item>
             <item>dark_butler1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="acchi_kocchi">
+            <item>acchi_kocchi3</item>
+            <item>acchi_kocchi1</item>
+            <item>acchi_kocchi4</item>
+            <item>acchi_kocchi2</item>
         </string-array>
 	</item>
 	<item>
@@ -362,11 +465,27 @@
         </string-array>
 	</item>
 	<item>
-		<string-array name="k_on">
-            <item>k_on1</item>
-            <item>k_on3</item>
-            <item>k_on2</item>
-            <item>k_on4</item>
+		<string-array name="mahouka_koukou_no_rettousei">
+            <item>mahouka_koukou_no_rettousei3</item>
+            <item>mahouka_koukou_no_rettousei4</item>
+            <item>mahouka_koukou_no_rettousei1</item>
+            <item>mahouka_koukou_no_rettousei2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="white_album">
+            <item>white_album4</item>
+            <item>white_album2</item>
+            <item>white_album3</item>
+            <item>white_album1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="date_a_live">
+            <item>date_a_live1</item>
+            <item>date_a_live3</item>
+            <item>date_a_live4</item>
+            <item>date_a_live2</item>
         </string-array>
 	</item>
 	<item>
@@ -394,11 +513,11 @@
         </string-array>
 	</item>
 	<item>
-		<string-array name="d_gray_man">
-            <item>d_gray_man3</item>
-            <item>d_gray_man1</item>
-            <item>d_gray_man2</item>
-            <item>d_gray_man4</item>
+		<string-array name="sakurasou_no_pet_na_kanojo">
+            <item>sakurasou_no_pet_na_kanojo4</item>
+            <item>sakurasou_no_pet_na_kanojo2</item>
+            <item>sakurasou_no_pet_na_kanojo3</item>
+            <item>sakurasou_no_pet_na_kanojo1</item>
         </string-array>
 	</item>
 	<item>
@@ -415,6 +534,14 @@
             <item>runoni_kenshin3</item>
             <item>runoni_kenshin2</item>
             <item>runoni_kenshin4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="vividred_operation">
+            <item>vividred_operation4</item>
+            <item>vividred_operation3</item>
+            <item>vividred_operation2</item>
+            <item>vividred_operation1</item>
         </string-array>
 	</item>
 	<item>
@@ -458,11 +585,35 @@
         </string-array>
 	</item>
 	<item>
+		<string-array name="kiss_x_sis">
+            <item>kiss_x_sis3</item>
+            <item>kiss_x_sis1</item>
+            <item>kiss_x_sis2</item>
+            <item>kiss_x_sis4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="gingitsune">
+            <item>gingitsune4</item>
+            <item>gingitsune2</item>
+            <item>gingitsune3</item>
+            <item>gingitsune1</item>
+        </string-array>
+	</item>
+	<item>
 		<string-array name="soul_eater">
             <item>soul_eater3</item>
             <item>soul_eater1</item>
             <item>soul_eater2</item>
             <item>soul_eater4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="kamisama_no_inai_nichiyoubi">
+            <item>kamisama_no_inai_nichiyoubi4</item>
+            <item>kamisama_no_inai_nichiyoubi3</item>
+            <item>kamisama_no_inai_nichiyoubi1</item>
+            <item>kamisama_no_inai_nichiyoubi2</item>
         </string-array>
 	</item>
 	<item>
@@ -490,6 +641,14 @@
         </string-array>
 	</item>
 	<item>
+		<string-array name="brothers_conflict">
+            <item>brothers_conflict3</item>
+            <item>brothers_conflict2</item>
+            <item>brothers_conflict4</item>
+            <item>brothers_conflict1</item>
+        </string-array>
+	</item>
+	<item>
 		<string-array name="hellsing">
             <item>hellsing2</item>
             <item>hellsing3</item>
@@ -503,6 +662,14 @@
             <item>log_horizon2</item>
             <item>log_horizon4</item>
             <item>log_horizon1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="aldnoah.zero">
+            <item>aldnoah.zero1</item>
+            <item>aldnoah.zero4</item>
+            <item>aldnoah.zero2</item>
+            <item>aldnoah.zero3</item>
         </string-array>
 	</item>
 	<item>
@@ -522,11 +689,43 @@
         </string-array>
 	</item>
 	<item>
+		<string-array name="overlord">
+            <item>overlord3</item>
+            <item>overlord2</item>
+            <item>overlord4</item>
+            <item>overlord1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="7_deadly_sins">
+            <item>7_deadly_sins3</item>
+            <item>7_deadly_sins2</item>
+            <item>7_deadly_sins1</item>
+            <item>7_deadly_sins4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="sket_dance">
+            <item>sket_dance2</item>
+            <item>sket_dance4</item>
+            <item>sket_dance3</item>
+            <item>sket_dance1</item>
+        </string-array>
+	</item>
+	<item>
 		<string-array name="eden_of_the_east">
             <item>eden_of_the_east1</item>
             <item>eden_of_the_east3</item>
             <item>eden_of_the_east4</item>
             <item>eden_of_the_east2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="tamako_market">
+            <item>tamako_market3</item>
+            <item>tamako_market1</item>
+            <item>tamako_market2</item>
+            <item>tamako_market4</item>
         </string-array>
 	</item>
 	<item>
@@ -635,8 +834,8 @@
 	</item>
 	<item>
 		<string-array name="danmachi">
-            <item>danmachi1</item>
             <item>danmachi3</item>
+            <item>danmachi1</item>
             <item>danmachi4</item>
             <item>danmachi2</item>
         </string-array>
@@ -647,6 +846,14 @@
             <item>great_teacher_onizuka2</item>
             <item>great_teacher_onizuka3</item>
             <item>great_teacher_onizuka1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="maid_sama!">
+            <item>maid_sama!1</item>
+            <item>maid_sama!4</item>
+            <item>maid_sama!2</item>
+            <item>maid_sama!3</item>
         </string-array>
 	</item>
 	<item>
@@ -674,11 +881,41 @@
         </string-array>
 	</item>
 	<item>
+		<string-array name="d.gray_man">
+            <item>d.gray_man4</item>
+            <item>d.gray_man1</item>
+            <item>d.gray_man3</item>
+            <item>d.gray_man2</item>
+        </string-array>
+	</item>
+	<item>
 		<string-array name="full_metal_panic">
             <item>full_metal_panic2</item>
             <item>full_metal_panic3</item>
             <item>full_metal_panic4</item>
             <item>full_metal_panic1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="tokyo_ravens">
+            <item>tokyo_ravensmbkkgsl_lba</item>
+            <item>tokyo_ravens1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="bakuman">
+            <item>bakuman1</item>
+            <item>bakuman4</item>
+            <item>bakuman3</item>
+            <item>bakuman2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="jormungand">
+            <item>jormungand3</item>
+            <item>jormungand2</item>
+            <item>jormungand1</item>
+            <item>jormungand4</item>
         </string-array>
 	</item>
     </string-array>
