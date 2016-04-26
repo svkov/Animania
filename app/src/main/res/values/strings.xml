@@ -51,10 +51,10 @@
 	</item>
 	<item>
 		<string-array name="k-on">
-            <item>k-on4</item>
-            <item>k-on3</item>
-            <item>k-on1</item>
-            <item>k-on2</item>
+            <item>k_on1</item>
+            <item>k_on2</item>
+            <item>k_on3</item>
+            <item>k_on4</item>
         </string-array>
 	</item>
 	<item>
@@ -102,6 +102,7 @@
             <item>kore_wa_zombi_desu_ka3</item>
             <item>kore_wa_zombi_desu_ka1</item>
             <item>kore_wa_zombi_desu_ka2</item>
+            <item>kore_wa_zombi_desu_ka4</item>
         </string-array>
 	</item>
 	<item>
@@ -210,10 +211,10 @@
 	</item>
 	<item>
 		<string-array name="chuunibyou_demo_koi_ga_shitai!">
-            <item>chuunibyou_demo_koi_ga_shitai!2</item>
-            <item>chuunibyou_demo_koi_ga_shitai!3</item>
-            <item>chuunibyou_demo_koi_ga_shitai!4</item>
-            <item>chuunibyou_demo_koi_ga_shitai!1</item>
+            <item>chuunibyou_demo_koi_ga_shitai2</item>
+            <item>chuunibyou_demo_koi_ga_shitai3</item>
+            <item>chuunibyou_demo_koi_ga_shitai4</item>
+            <item>chuunibyou_demo_koi_ga_shitai1</item>
         </string-array>
 	</item>
 	<item>
@@ -226,10 +227,10 @@
 	</item>
 	<item>
 		<string-array name="maken-ki">
-            <item>maken-ki3</item>
-            <item>maken-ki2</item>
-            <item>maken-ki4</item>
-            <item>maken-ki1</item>
+            <item>maken_ki3</item>
+            <item>maken_ki2</item>
+            <item>maken_ki4</item>
+            <item>maken_ki1</item>
         </string-array>
 	</item>
 	<item>
@@ -258,10 +259,10 @@
 	</item>
 	<item>
 		<string-array name="mm!">
-            <item>mm!2</item>
-            <item>mm!1</item>
-            <item>mm!4</item>
-            <item>mm!3</item>
+            <item>mm2</item>
+            <item>mm1</item>
+            <item>mm4</item>
+            <item>mm3</item>
         </string-array>
 	</item>
 	<item>
@@ -666,10 +667,10 @@
 	</item>
 	<item>
 		<string-array name="aldnoah.zero">
-            <item>aldnoah.zero1</item>
-            <item>aldnoah.zero4</item>
-            <item>aldnoah.zero2</item>
-            <item>aldnoah.zero3</item>
+            <item>aldnoah_zero1</item>
+            <item>aldnoah_zero4</item>
+            <item>aldnoah_zero2</item>
+            <item>aldnoah_zero3</item>
         </string-array>
 	</item>
 	<item>
@@ -698,10 +699,10 @@
 	</item>
 	<item>
 		<string-array name="7_deadly_sins">
-            <item>7_deadly_sins3</item>
-            <item>7_deadly_sins2</item>
-            <item>7_deadly_sins1</item>
-            <item>7_deadly_sins4</item>
+            <item>seven_deadly_sins3</item>
+            <item>seven_deadly_sins2</item>
+            <item>seven_deadly_sins1</item>
+            <item>seven_deadly_sins4</item>
         </string-array>
 	</item>
 	<item>
@@ -850,10 +851,10 @@
 	</item>
 	<item>
 		<string-array name="maid_sama!">
-            <item>maid_sama!1</item>
-            <item>maid_sama!4</item>
-            <item>maid_sama!2</item>
-            <item>maid_sama!3</item>
+            <item>maid_sama1</item>
+            <item>maid_sama4</item>
+            <item>maid_sama2</item>
+            <item>maid_sama3</item>
         </string-array>
 	</item>
 	<item>
@@ -882,10 +883,10 @@
 	</item>
 	<item>
 		<string-array name="d.gray_man">
-            <item>d.gray_man4</item>
-            <item>d.gray_man1</item>
-            <item>d.gray_man3</item>
-            <item>d.gray_man2</item>
+            <item>d_gray_man4</item>
+            <item>d_gray_man1</item>
+            <item>d_gray_man3</item>
+            <item>d_gray_man2</item>
         </string-array>
 	</item>
 	<item>
@@ -898,8 +899,10 @@
 	</item>
 	<item>
 		<string-array name="tokyo_ravens">
-            <item>tokyo_ravensmbkkgsl_lba</item>
             <item>tokyo_ravens1</item>
+            <item>tokyo_ravens2</item>
+            <item>tokyo_ravens3</item>
+            <item>tokyo_ravens4</item>
         </string-array>
 	</item>
 	<item>

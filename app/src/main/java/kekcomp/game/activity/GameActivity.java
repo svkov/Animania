@@ -503,6 +503,7 @@ public class GameActivity extends Activity {
 
     private String[] getStrArr(){
         String[] strArr = getResources().getStringArray(R.array.anime_names);
+        System.out.println(strArr[seed]);
         return strArr[seed].split(" ");
     }
 
