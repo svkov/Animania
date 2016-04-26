@@ -21,13 +21,6 @@ import kekcomp.game.utils.Listeners;
 /**
  * Created by svyatoslav on 09.01.2016.
  */
-
-/*try{
-
-        }catch (NullPointerException e){
-            e.printStackTrace();
-        }*/
-
 public class MenuActivity extends Activity {
 
     AnimationUtils animationUtils;
@@ -63,7 +56,6 @@ public class MenuActivity extends Activity {
                 final RelativeLayout resetLayout = (RelativeLayout) findViewById(R.id.resetLayout);
                 backButton = (Button) findViewById(R.id.backButton);
                 resetButton = (Button) findViewById(R.id.reset);
-                //final AnimationUtils animationUtils = new AnimationUtils(resetLayout);
                 animationUtils.fadeInAllLayoutChildren(resetLayout);
                 resetButton.setOnTouchListener(Listeners.hoverSmall);
                 backButton.setOnTouchListener(Listeners.hoverSmall);
