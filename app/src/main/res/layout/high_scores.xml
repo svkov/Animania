@@ -6,7 +6,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/high_score_relative">
 
         <TableLayout
             android:layout_alignParentLeft="@+id/textView"
@@ -21,9 +22,16 @@
             android:textSize="40sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="High scores:"
+            android:text="@string/high_scores_string"
             android:id="@+id/textView"
             android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/no_high_scores"
+            android:layout_above="@+id/table"
             android:layout_centerHorizontal="true" />
     </RelativeLayout>
 </LinearLayout>

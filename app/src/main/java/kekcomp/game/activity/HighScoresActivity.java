@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -26,6 +28,7 @@ public class HighScoresActivity extends Activity {
     TableLayout tableLayout;
     final static int rows = 10;
     AnimationUtils animation;
+    boolean anyHighScores = true;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -33,7 +36,16 @@ public class HighScoresActivity extends Activity {
         setContentView(R.layout.high_scores);
         tableLayout = (TableLayout) findViewById(R.id.table);
         hs = getNamesAndScores();
-        for(int i = 0; i < rows; i++){
+        if(hs.size() == 0){
+            anyHighScores = false;
+            TextView tv = (TextView) findViewById(R.id.no_high_scores);
+            tv.setText(R.string.havnths);
+            tv.setTextSize(40);
+            tv.setTextColor(Color.WHITE);
+            tv.setPadding(0, 150, 0, 0);
+            tableLayout.setVisibility(View.GONE);
+        }
+        for(int i = 0; i < rows && anyHighScores; i++){
             TableRow tableRow = new TableRow(this);
             tableRow.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
             if(hs.size() >= 1){
@@ -112,15 +124,14 @@ public class HighScoresActivity extends Activity {
     private HashMap<String, Integer> getNamesAndScores(){
         SharedPreferences sharedPreferences = getSharedPreferences("high_score", MODE_PRIVATE);
         Map<String, ?> map = sharedPreferences.getAll();
-        System.out.println("map.size() = "+map.size());
         HashMap<String, Integer> scores = new HashMap<>();
         for(String name: map.keySet()){
-            //System.out.println("key = " + name);
             int score = (Integer) map.get(name);
-            //System.out.println("value = " + score);
             scores.put(name, score);
         }
-        System.out.println("scores.size() = "+scores.size());
+        if(scores == null){
+            return null;
+        }
         return scores;
     }
 }

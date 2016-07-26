@@ -13,7 +13,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back"
+            android:text="@string/back"
             android:id="@+id/backStatButton"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
@@ -25,7 +25,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Accepted:"
+            android:text="@string/accepted"
             android:id="@+id/okText"
             android:layout_alignParentTop="true"
             android:layout_alignLeft="@+id/backStatButton"
@@ -39,7 +39,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wrong:"
+            android:text="@string/wrong"
             android:id="@+id/wrongText"
             android:layout_below="@+id/okText"
             android:layout_alignLeft="@+id/okText"

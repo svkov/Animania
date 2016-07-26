@@ -18,7 +18,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -61,6 +60,10 @@ import kekcomp.game.utils.SetUtils;
  * Upd on 25.04.2016
  * A lot of bugs and hate
  * 115 anime added
+ *
+ * Upd on 26.07.2016
+ * Translate to english
+ * Some steps to publicate at Play Market
  ***/
 
 public class GameActivity extends Activity {
@@ -71,7 +74,7 @@ public class GameActivity extends Activity {
     TextView scoreView;
     RelativeLayout relativeLayout;
     kekcomp.game.utils.AnimationUtils animationUtils;
-    final static int NUMBER_OF_ANIME = 30; //115
+    final static int NUMBER_OF_ANIME = 115; //115
     static int score = 0;
     int seed = -1;
     String[] names;
@@ -266,13 +269,13 @@ public class GameActivity extends Activity {
     public void onStop() {
         super.onStop();
         animationUtils.fadeOutAllLayoutChildren(relativeLayout);
-        System.out.println("Activity has been stoped and destroyed");
+        //System.out.println("Activity has been stoped and destroyed");
     }
 
     @Override
     public void onStart(){
         super.onStart();
-        System.out.println("Activity has been started");
+        //System.out.println("Activity has been started");
     }
     @Override
     public void onDestroy(){
@@ -314,7 +317,7 @@ public class GameActivity extends Activity {
     }
 
     private void resetGame(){
-        System.out.println("resetGame()");
+        //System.out.println("resetGame()");
         sharedPreferences = getSharedPreferences("solved_anime", MODE_PRIVATE);
         sharedPreferences.edit().clear().apply();
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -333,7 +336,7 @@ public class GameActivity extends Activity {
             }
         }
         Object[] scoreArray = scores.toArray();
-        System.out.println("checkHighScore(): map.size() = " + map.size());
+        //System.out.println("checkHighScore(): map.size() = " + map.size());
         if(map.size() < 10) {
             return true;
         }else{
@@ -353,7 +356,7 @@ public class GameActivity extends Activity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(input);
-        builder.setMessage("You solve all anime!\nYou can play again!\nWrite your name and press OK to continue")
+        builder.setMessage(R.string.win)
                 .setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -471,7 +474,7 @@ public class GameActivity extends Activity {
         int[] array = SetUtils.toInt(usableSet);
         seed = array[n];
 
-        System.out.println("Seed: "+seed);
+        //System.out.println("Seed: "+seed);
         return seed;
     }
 

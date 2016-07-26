@@ -12,7 +12,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back"
+            android:text="@string/back"
             android:id="@+id/backButton"
             android:textSize="20sp"
             android:background="@drawable/button"
@@ -25,7 +25,7 @@
             android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reset"
+            android:text="@string/reset"
             android:id="@+id/reset"
             android:layout_marginTop="132dp"
             android:layout_alignParentTop="true"

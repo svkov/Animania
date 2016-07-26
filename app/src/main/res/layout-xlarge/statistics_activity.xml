@@ -11,7 +11,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back"
+            android:text="@string/back"
             android:id="@+id/backStatButton"
             android:background="@drawable/button"
             android:textSize="30sp"
@@ -23,7 +23,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Accepted:"
+            android:text="@string/accepted"
             android:id="@+id/okText"
             android:textSize="50sp"
             android:textColor="#FFF"
@@ -35,7 +35,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Wrong:"
+            android:text="@string/wrong"
             android:id="@+id/wrongText"
             android:layout_below="@+id/okText"
             android:layout_alignLeft="@+id/okText"

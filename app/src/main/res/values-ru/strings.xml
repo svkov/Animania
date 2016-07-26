@@ -1,0 +1,935 @@
+<resources>
+    <string name="app_name">Animania</string>
+    <string name="new_game">Играть</string>
+    <string name="settings">Настройки</string>
+    <string name="high_scores_string">Рекорды</string>
+    <string name="statistics">Статистика</string>
+    <string name="reset">Сбросить</string>
+    <string name="back">Назад</string>
+    <string name="accepted">Правильно:</string>
+    <string name="wrong">Неправильно:</string>
+    <string name="havnths">"У вас пока нет рекордов"</string>
+    <string name="win">"Вы отгадали все аниме!\nСыграйте снова!\nНапишите имя и нажмите ОК, что бы продолжить"</string>
+    <string-array name="anime_names">
+	<item>
+		<string-array name="fairy_tail">
+            <item>fairy_tail2</item>
+            <item>fairy_tail4</item>
+            <item>fairy_tail1</item>
+            <item>fairy_tail3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="shakugan_no_shana">
+            <item>shakugan_no_shana3</item>
+            <item>shakugan_no_shana4</item>
+            <item>shakugan_no_shana1</item>
+            <item>shakugan_no_shana2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="kara_no_kyokai">
+            <item>kara_no_kyokai4</item>
+            <item>kara_no_kyokai3</item>
+            <item>kara_no_kyokai1</item>
+            <item>kara_no_kyokai2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="pandora_hearts">
+            <item>pandora_hearts2</item>
+            <item>pandora_hearts4</item>
+            <item>pandora_hearts3</item>
+            <item>pandora_hearts1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="azumanga_daioh">
+            <item>azumanga_daioh4</item>
+            <item>azumanga_daioh2</item>
+            <item>azumanga_daioh1</item>
+            <item>azumanga_daioh3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="evangelion">
+            <item>evangelion3</item>
+            <item>evangelion2</item>
+            <item>evangelion1</item>
+            <item>evangelion4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="k-on">
+            <item>k_on1</item>
+            <item>k_on2</item>
+            <item>k_on3</item>
+            <item>k_on4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="guilty_crown">
+            <item>guilty_crown3</item>
+            <item>guilty_crown2</item>
+            <item>guilty_crown1</item>
+            <item>guilty_crown4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="cowboy_bebop">
+            <item>cowboy_bebop2</item>
+            <item>cowboy_bebop3</item>
+            <item>cowboy_bebop4</item>
+            <item>cowboy_bebop1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="dragon_ball">
+            <item>dragon_ball1</item>
+            <item>dragon_ball2</item>
+            <item>dragon_ball3</item>
+            <item>dragon_ball4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="madoka_magica">
+            <item>madoka_magica3</item>
+            <item>madoka_magica2</item>
+            <item>madoka_magica4</item>
+            <item>madoka_magica1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="fate_stay_night">
+            <item>fate_stay_night4</item>
+            <item>fate_stay_night1</item>
+            <item>fate_stay_night3</item>
+            <item>fate_stay_night2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="kore_wa_zombi_desu_ka">
+            <item>kore_wa_zombi_desu_ka3</item>
+            <item>kore_wa_zombi_desu_ka1</item>
+            <item>kore_wa_zombi_desu_ka2</item>
+            <item>kore_wa_zombi_desu_ka4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="elfen_lied">
+            <item>elfen_lied2</item>
+            <item>elfen_lied4</item>
+            <item>elfen_lied3</item>
+            <item>elfen_lied1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="wolf_and_spice">
+            <item>wolf_and_spice2</item>
+            <item>wolf_and_spice1</item>
+            <item>wolf_and_spice3</item>
+            <item>wolf_and_spice4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="gintama">
+            <item>gintama2</item>
+            <item>gintama3</item>
+            <item>gintama4</item>
+            <item>gintama1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="future_diary">
+            <item>future_diary4</item>
+            <item>future_diary2</item>
+            <item>future_diary3</item>
+            <item>future_diary1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="corpse_party_tortured_souls">
+            <item>corpse_party_tortured_souls2</item>
+            <item>corpse_party_tortured_souls1</item>
+            <item>corpse_party_tortured_souls4</item>
+            <item>corpse_party_tortured_souls3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="sound_of_the_sky">
+            <item>sound_of_the_sky2</item>
+            <item>sound_of_the_sky3</item>
+            <item>sound_of_the_sky1</item>
+            <item>sound_of_the_sky4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="level_e">
+            <item>level_e1</item>
+            <item>level_e2</item>
+            <item>level_e4</item>
+            <item>level_e3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="non_non_biyori">
+            <item>non_non_biyori2</item>
+            <item>non_non_biyori4</item>
+            <item>non_non_biyori3</item>
+            <item>non_non_biyori1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="black_lagoon">
+            <item>black_lagoon3</item>
+            <item>black_lagoon4</item>
+            <item>black_lagoon2</item>
+            <item>black_lagoon1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="ano_hi_mita_hana_no_namae_o_bokutachi_wa_mada_shiranai">
+            <item>ano_hi_mita_hana_no_namae_o_bokutachi_wa_mada_shiranai3</item>
+            <item>ano_hi_mita_hana_no_namae_o_bokutachi_wa_mada_shiranai1</item>
+            <item>ano_hi_mita_hana_no_namae_o_bokutachi_wa_mada_shiranai2</item>
+            <item>ano_hi_mita_hana_no_namae_o_bokutachi_wa_mada_shiranai4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="code_geass">
+            <item>code_geass1</item>
+            <item>code_geass4</item>
+            <item>code_geass3</item>
+            <item>code_geass2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="ergo_proxy">
+            <item>ergo_proxy3</item>
+            <item>ergo_proxy2</item>
+            <item>ergo_proxy4</item>
+            <item>ergo_proxy1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="freezing">
+            <item>freezing3</item>
+            <item>freezing4</item>
+            <item>freezing1</item>
+            <item>freezing2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="chuunibyou_demo_koi_ga_shitai!">
+            <item>chuunibyou_demo_koi_ga_shitai2</item>
+            <item>chuunibyou_demo_koi_ga_shitai3</item>
+            <item>chuunibyou_demo_koi_ga_shitai4</item>
+            <item>chuunibyou_demo_koi_ga_shitai1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="melancholy_of_haruhi_suzumiya">
+            <item>melancholy_of_haruhi_suzumiya1</item>
+            <item>melancholy_of_haruhi_suzumiya3</item>
+            <item>melancholy_of_haruhi_suzumiya2</item>
+            <item>melancholy_of_haruhi_suzumiya4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="maken-ki">
+            <item>maken_ki3</item>
+            <item>maken_ki2</item>
+            <item>maken_ki4</item>
+            <item>maken_ki1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="rozen_maiden">
+            <item>rozen_maiden3</item>
+            <item>rozen_maiden2</item>
+            <item>rozen_maiden1</item>
+            <item>rozen_maiden4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="akuma_no_riddle">
+            <item>akuma_no_riddle2</item>
+            <item>akuma_no_riddle3</item>
+            <item>akuma_no_riddle4</item>
+            <item>akuma_no_riddle1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="akame_ga_kill">
+            <item>akame_ga_kill4</item>
+            <item>akame_ga_kill1</item>
+            <item>akame_ga_kill3</item>
+            <item>akame_ga_kill2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="mm!">
+            <item>mm2</item>
+            <item>mm1</item>
+            <item>mm4</item>
+            <item>mm3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="ghost_hound">
+            <item>ghost_hound1</item>
+            <item>ghost_hound4</item>
+            <item>ghost_hound2</item>
+            <item>ghost_hound3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="gosick">
+            <item>gosick3</item>
+            <item>gosick2</item>
+            <item>gosick1</item>
+            <item>gosick4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="toradora">
+            <item>toradora3</item>
+            <item>toradora2</item>
+            <item>toradora1</item>
+            <item>toradora4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="accel_world">
+            <item>accel_world4</item>
+            <item>accel_world2</item>
+            <item>accel_world1</item>
+            <item>accel_world3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="ansatsu_kyoushitsu">
+            <item>ansatsu_kyoushitsu4</item>
+            <item>ansatsu_kyoushitsu2</item>
+            <item>ansatsu_kyoushitsu1</item>
+            <item>ansatsu_kyoushitsu3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="slayers">
+            <item>slayers2</item>
+            <item>slayers3</item>
+            <item>slayers1</item>
+            <item>slayers4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="working">
+            <item>working4</item>
+            <item>working3</item>
+            <item>working2</item>
+            <item>working1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="toriko">
+            <item>toriko3</item>
+            <item>toriko2</item>
+            <item>toriko1</item>
+            <item>toriko4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="noragami">
+            <item>noragami1</item>
+            <item>noragami4</item>
+            <item>noragami2</item>
+            <item>noragami3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="no_game_no_life">
+            <item>no_game_no_life4</item>
+            <item>no_game_no_life1</item>
+            <item>no_game_no_life2</item>
+            <item>no_game_no_life3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="hitsugi_no_chaika">
+            <item>hitsugi_no_chaika2</item>
+            <item>hitsugi_no_chaika4</item>
+            <item>hitsugi_no_chaika3</item>
+            <item>hitsugi_no_chaika1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="school_days">
+            <item>school_days4</item>
+            <item>school_days2</item>
+            <item>school_days1</item>
+            <item>school_days3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="trigun">
+            <item>trigun3</item>
+            <item>trigun4</item>
+            <item>trigun2</item>
+            <item>trigun1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="lucky_star">
+            <item>lucky_star1</item>
+            <item>lucky_star3</item>
+            <item>lucky_star2</item>
+            <item>lucky_star4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="clannad">
+            <item>clannad3</item>
+            <item>clannad4</item>
+            <item>clannad1</item>
+            <item>clannad2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="panty_and_stocking">
+            <item>panty_and_stocking3</item>
+            <item>panty_and_stocking2</item>
+            <item>panty_and_stocking4</item>
+            <item>panty_and_stocking1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="umineko_no_naku_koro_ni">
+            <item>umineko_no_naku_koro_ni1</item>
+            <item>umineko_no_naku_koro_ni4</item>
+            <item>umineko_no_naku_koro_ni3</item>
+            <item>umineko_no_naku_koro_ni2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="hack_sign">
+            <item>hack_sign3</item>
+            <item>hack_sign4</item>
+            <item>hack_sign1</item>
+            <item>hack_sign2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="idolmaster">
+            <item>idolmaster1</item>
+            <item>idolmaster4</item>
+            <item>idolmaster3</item>
+            <item>idolmaster2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="k_project">
+            <item>k_project2</item>
+            <item>k_project3</item>
+            <item>k_project4</item>
+            <item>k_project1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="pokemon">
+            <item>pokemon2</item>
+            <item>pokemon1</item>
+            <item>pokemon4</item>
+            <item>pokemon3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="dark_butler">
+            <item>dark_butler4</item>
+            <item>dark_butler2</item>
+            <item>dark_butler3</item>
+            <item>dark_butler1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="acchi_kocchi">
+            <item>acchi_kocchi3</item>
+            <item>acchi_kocchi1</item>
+            <item>acchi_kocchi4</item>
+            <item>acchi_kocchi2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="serial_experiments_lain">
+            <item>serial_experiments_lain4</item>
+            <item>serial_experiments_lain2</item>
+            <item>serial_experiments_lain3</item>
+            <item>serial_experiments_lain1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="one_piece">
+            <item>one_piece1</item>
+            <item>one_piece2</item>
+            <item>one_piece3</item>
+            <item>one_piece4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="mahouka_koukou_no_rettousei">
+            <item>mahouka_koukou_no_rettousei3</item>
+            <item>mahouka_koukou_no_rettousei4</item>
+            <item>mahouka_koukou_no_rettousei1</item>
+            <item>mahouka_koukou_no_rettousei2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="white_album">
+            <item>white_album4</item>
+            <item>white_album2</item>
+            <item>white_album3</item>
+            <item>white_album1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="date_a_live">
+            <item>date_a_live1</item>
+            <item>date_a_live3</item>
+            <item>date_a_live4</item>
+            <item>date_a_live2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="hunter_x_hunter">
+            <item>hunter_x_hunter2</item>
+            <item>hunter_x_hunter1</item>
+            <item>hunter_x_hunter4</item>
+            <item>hunter_x_hunter3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="sword_art_online">
+            <item>sword_art_online3</item>
+            <item>sword_art_online2</item>
+            <item>sword_art_online4</item>
+            <item>sword_art_online1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="steins_gate">
+            <item>steins_gate2</item>
+            <item>steins_gate1</item>
+            <item>steins_gate4</item>
+            <item>steins_gate3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="sakurasou_no_pet_na_kanojo">
+            <item>sakurasou_no_pet_na_kanojo4</item>
+            <item>sakurasou_no_pet_na_kanojo2</item>
+            <item>sakurasou_no_pet_na_kanojo3</item>
+            <item>sakurasou_no_pet_na_kanojo1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="gurren_lagann">
+            <item>gurren_lagann2</item>
+            <item>gurren_lagann1</item>
+            <item>gurren_lagann3</item>
+            <item>gurren_lagann4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="runoni_kenshin">
+            <item>runoni_kenshin1</item>
+            <item>runoni_kenshin3</item>
+            <item>runoni_kenshin2</item>
+            <item>runoni_kenshin4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="vividred_operation">
+            <item>vividred_operation4</item>
+            <item>vividred_operation3</item>
+            <item>vividred_operation2</item>
+            <item>vividred_operation1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="akira">
+            <item>akira2</item>
+            <item>akira1</item>
+            <item>akira4</item>
+            <item>akira3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="world_god_only_knows">
+            <item>world_god_only_knows1</item>
+            <item>world_god_only_knows3</item>
+            <item>world_god_only_knows4</item>
+            <item>world_god_only_knows2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="sailor_moon">
+            <item>sailor_moon3</item>
+            <item>sailor_moon4</item>
+            <item>sailor_moon2</item>
+            <item>sailor_moon1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="one_punch_man">
+            <item>one_punch_man1</item>
+            <item>one_punch_man4</item>
+            <item>one_punch_man2</item>
+            <item>one_punch_man3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="black_rock_shooter">
+            <item>black_rock_shooter1</item>
+            <item>black_rock_shooter2</item>
+            <item>black_rock_shooter4</item>
+            <item>black_rock_shooter3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="kiss_x_sis">
+            <item>kiss_x_sis3</item>
+            <item>kiss_x_sis1</item>
+            <item>kiss_x_sis2</item>
+            <item>kiss_x_sis4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="gingitsune">
+            <item>gingitsune4</item>
+            <item>gingitsune2</item>
+            <item>gingitsune3</item>
+            <item>gingitsune1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="soul_eater">
+            <item>soul_eater3</item>
+            <item>soul_eater1</item>
+            <item>soul_eater2</item>
+            <item>soul_eater4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="kamisama_no_inai_nichiyoubi">
+            <item>kamisama_no_inai_nichiyoubi4</item>
+            <item>kamisama_no_inai_nichiyoubi3</item>
+            <item>kamisama_no_inai_nichiyoubi1</item>
+            <item>kamisama_no_inai_nichiyoubi2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="chobits">
+            <item>chobits3</item>
+            <item>chobits4</item>
+            <item>chobits1</item>
+            <item>chobits2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="high_school_dxd">
+            <item>high_school_dxd1</item>
+            <item>high_school_dxd4</item>
+            <item>high_school_dxd2</item>
+            <item>high_school_dxd3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="darker_than_black">
+            <item>darker_than_black1</item>
+            <item>darker_than_black3</item>
+            <item>darker_than_black2</item>
+            <item>darker_than_black4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="brothers_conflict">
+            <item>brothers_conflict3</item>
+            <item>brothers_conflict2</item>
+            <item>brothers_conflict4</item>
+            <item>brothers_conflict1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="hellsing">
+            <item>hellsing2</item>
+            <item>hellsing3</item>
+            <item>hellsing1</item>
+            <item>hellsing4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="log_horizon">
+            <item>log_horizon3</item>
+            <item>log_horizon2</item>
+            <item>log_horizon4</item>
+            <item>log_horizon1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="aldnoah.zero">
+            <item>aldnoah_zero1</item>
+            <item>aldnoah_zero4</item>
+            <item>aldnoah_zero2</item>
+            <item>aldnoah_zero3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="blood_lad">
+            <item>blood_lad2</item>
+            <item>blood_lad3</item>
+            <item>blood_lad1</item>
+            <item>blood_lad4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="psycho_pass">
+            <item>psycho_pass3</item>
+            <item>psycho_pass4</item>
+            <item>psycho_pass1</item>
+            <item>psycho_pass2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="overlord">
+            <item>overlord3</item>
+            <item>overlord2</item>
+            <item>overlord4</item>
+            <item>overlord1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="7_deadly_sins">
+            <item>seven_deadly_sins3</item>
+            <item>seven_deadly_sins2</item>
+            <item>seven_deadly_sins1</item>
+            <item>seven_deadly_sins4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="sket_dance">
+            <item>sket_dance2</item>
+            <item>sket_dance4</item>
+            <item>sket_dance3</item>
+            <item>sket_dance1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="eden_of_the_east">
+            <item>eden_of_the_east1</item>
+            <item>eden_of_the_east3</item>
+            <item>eden_of_the_east4</item>
+            <item>eden_of_the_east2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="tamako_market">
+            <item>tamako_market3</item>
+            <item>tamako_market1</item>
+            <item>tamako_market2</item>
+            <item>tamako_market4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="rwby">
+            <item>rwby3</item>
+            <item>rwby4</item>
+            <item>rwby1</item>
+            <item>rwby2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="black_bullet">
+            <item>black_bullet2</item>
+            <item>black_bullet4</item>
+            <item>black_bullet1</item>
+            <item>black_bullet3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="gankutsuo">
+            <item>gankutsuo2</item>
+            <item>gankutsuo1</item>
+            <item>gankutsuo3</item>
+            <item>gankutsuo4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="attack_on_titan">
+            <item>attack_on_titan2</item>
+            <item>attack_on_titan1</item>
+            <item>attack_on_titan4</item>
+            <item>attack_on_titan3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="baccano">
+            <item>baccano1</item>
+            <item>baccano4</item>
+            <item>baccano2</item>
+            <item>baccano3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="infinite_stratos">
+            <item>infinite_stratos2</item>
+            <item>infinite_stratos3</item>
+            <item>infinite_stratos4</item>
+            <item>infinite_stratos1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="fullmetal_alchemist">
+            <item>fullmetal_alchemist2</item>
+            <item>fullmetal_alchemist3</item>
+            <item>fullmetal_alchemist1</item>
+            <item>fullmetal_alchemist4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="kill_la_kill">
+            <item>kill_la_kill2</item>
+            <item>kill_la_kill4</item>
+            <item>kill_la_kill1</item>
+            <item>kill_la_kill3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="deadman_wonderland">
+            <item>deadman_wonderland3</item>
+            <item>deadman_wonderland1</item>
+            <item>deadman_wonderland2</item>
+            <item>deadman_wonderland4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="bridge_to_the_starry_skies">
+            <item>bridge_to_the_starry_skies1</item>
+            <item>bridge_to_the_starry_skies3</item>
+            <item>bridge_to_the_starry_skies4</item>
+            <item>bridge_to_the_starry_skies2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="parasyte">
+            <item>parasyte3</item>
+            <item>parasyte2</item>
+            <item>parasyte1</item>
+            <item>parasyte4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="death_parade">
+            <item>death_parade3</item>
+            <item>death_parade1</item>
+            <item>death_parade2</item>
+            <item>death_parade4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="tokyu_ghoul">
+            <item>tokyu_ghoul4</item>
+            <item>tokyu_ghoul3</item>
+            <item>tokyu_ghoul2</item>
+            <item>tokyu_ghoul1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="danmachi">
+            <item>danmachi3</item>
+            <item>danmachi1</item>
+            <item>danmachi4</item>
+            <item>danmachi2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="great_teacher_onizuka">
+            <item>great_teacher_onizuka4</item>
+            <item>great_teacher_onizuka2</item>
+            <item>great_teacher_onizuka3</item>
+            <item>great_teacher_onizuka1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="maid_sama!">
+            <item>maid_sama1</item>
+            <item>maid_sama4</item>
+            <item>maid_sama2</item>
+            <item>maid_sama3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="higurashi_no_naku_koro_ni">
+            <item>higurashi_no_naku_koro_ni4</item>
+            <item>higurashi_no_naku_koro_ni2</item>
+            <item>higurashi_no_naku_koro_ni1</item>
+            <item>higurashi_no_naku_koro_ni3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="air">
+            <item>air2</item>
+            <item>air1</item>
+            <item>air4</item>
+            <item>air3</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="naruto">
+            <item>naruto3</item>
+            <item>naruto4</item>
+            <item>naruto2</item>
+            <item>naruto1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="d.gray_man">
+            <item>d_gray_man4</item>
+            <item>d_gray_man1</item>
+            <item>d_gray_man3</item>
+            <item>d_gray_man2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="full_metal_panic">
+            <item>full_metal_panic2</item>
+            <item>full_metal_panic3</item>
+            <item>full_metal_panic4</item>
+            <item>full_metal_panic1</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="tokyo_ravens">
+            <item>tokyo_ravens1</item>
+            <item>tokyo_ravens2</item>
+            <item>tokyo_ravens3</item>
+            <item>tokyo_ravens4</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="bakuman">
+            <item>bakuman1</item>
+            <item>bakuman4</item>
+            <item>bakuman3</item>
+            <item>bakuman2</item>
+        </string-array>
+	</item>
+	<item>
+		<string-array name="jormungand">
+            <item>jormungand3</item>
+            <item>jormungand2</item>
+            <item>jormungand1</item>
+            <item>jormungand4</item>
+        </string-array>
+	</item>
+    </string-array>
+</resources>

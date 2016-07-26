@@ -86,7 +86,6 @@ public class MenuActivity extends Activity {
                 final RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.statisticsLayout);
                 TextView accepted = (TextView) findViewById(R.id.okText);
                 TextView wrong = (TextView) findViewById(R.id.wrongText);
-                //final AnimationUtils animationUtils = new AnimationUtils(relativeLayout);
                 animationUtils.fadeInAllLayoutChildren(relativeLayout);
                 accepted.setText(generateStatString(accepted));
                 wrong.setText(generateStatString(wrong));
