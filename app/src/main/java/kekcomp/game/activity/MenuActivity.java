@@ -17,6 +17,7 @@ import android.widget.TextView;
 import kekcomp.game.R;
 import kekcomp.game.utils.AnimationUtils;
 import kekcomp.game.utils.Listeners;
+import kekcomp.game.kt_activity.GameActivity;
 
 /**
  * Created by svyatoslav on 09.01.2016.
@@ -35,10 +36,15 @@ public class MenuActivity extends Activity {
     private Button backButton;
     private Button resetButton;
 
+    String accepted;
+    String wrong;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_activity);
+        accepted = getString(R.string.accepted);
+        wrong = getString(R.string.wrong);
         linearLayout = (LinearLayout) findViewById(R.id.menuLayout);
         newGameButton = (Button) findViewById(R.id.newGameButton);
         settingsButton = (Button) findViewById(R.id.settingsButton);
@@ -110,15 +116,12 @@ public class MenuActivity extends Activity {
 
     private String generateStatString(TextView tv){
         String res = (String) tv.getText();
-        switch (res){
-            case "Accepted:":
-                res = "right";
-                break;
-            case "Wrong:":
-                res = "wrong";
-                break;
-            default:
-                res = null;
+        if(res.equals(accepted)){
+            res = "right";
+        } else if(res.equals(wrong)){
+            res = "wrong";
+        } else {
+            res = "";
         }
         return tv.getText()+" "+getSharedPreferences("solved_anime", MODE_PRIVATE).getInt(res, 0);
     }

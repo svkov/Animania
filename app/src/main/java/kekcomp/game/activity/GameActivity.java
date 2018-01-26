@@ -74,7 +74,7 @@ public class GameActivity extends Activity {
     TextView scoreView;
     RelativeLayout relativeLayout;
     kekcomp.game.utils.AnimationUtils animationUtils;
-    final static int NUMBER_OF_ANIME = 115; //115
+    public final static int NUMBER_OF_ANIME = 115; //115
     static int score = 0;
     int seed = -1;
     String[] names;
@@ -302,7 +302,8 @@ public class GameActivity extends Activity {
     public void onResume(){
         super.onResume();
     }
-    private void newGame(){
+
+    public void newGame(){
         System.out.println("newGame()");
         //onPause();
         makeDialog();
@@ -443,6 +444,7 @@ public class GameActivity extends Activity {
         return abc;
     }
 
+
     private int generateSeed(){
         int seed;
         sharedPreferences = getSharedPreferences("solved_anime", MODE_PRIVATE);
@@ -498,10 +500,10 @@ public class GameActivity extends Activity {
     private ImageViewGroup generateImageViewGroup(){
         String[] strArr = getStrArr();
         int img1, img2, img3, img4;
-        img1 = getResources().getIdentifier(strArr[2], "drawable", this.getPackageName());
-        img2 = getResources().getIdentifier(strArr[3], "drawable", this.getPackageName());
-        img3 = getResources().getIdentifier(strArr[4], "drawable", this.getPackageName());
-        img4 = getResources().getIdentifier(strArr[5], "drawable", this.getPackageName());
+        img1 = getResources().getIdentifier(strArr[0], "drawable", this.getPackageName());
+        img2 = getResources().getIdentifier(strArr[1], "drawable", this.getPackageName());
+        img3 = getResources().getIdentifier(strArr[2], "drawable", this.getPackageName());
+        img4 = getResources().getIdentifier(strArr[3], "drawable", this.getPackageName());
         return new ImageViewGroup(img1, img2, img3, img4);
     }
 

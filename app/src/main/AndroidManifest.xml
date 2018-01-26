@@ -17,6 +17,12 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".kt_activity.GameActivity"
+            android:label="Game"
+            android:parentActivityName=".activity.MenuActivity"/>
+
+
+        <activity
             android:name=".activity.GameActivity"
             android:label="Game"
             android:parentActivityName=".activity.MenuActivity">
