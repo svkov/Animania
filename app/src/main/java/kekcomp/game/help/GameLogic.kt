@@ -11,9 +11,9 @@ import java.util.*
 
 class GameLogic(val activity: GameActivity) {
 
-    val MODE_PRIVATE = 0
-    val NUMBER_OF_ANIME = activity.NUMBER_OF_ANIME
-    val NUMBER_OF_ANIME_IN_BASE = activity.NUMBER_OF_ANIME_IN_BASE
+    private val MODE_PRIVATE = 0
+    private val NUMBER_OF_ANIME = activity.NUMBER_OF_ANIME
+    private val NUMBER_OF_ANIME_IN_BASE = activity.NUMBER_OF_ANIME_IN_BASE
     var seed = generateSeed()
         set(value) {
             winAnime = getAnimeName(value)
@@ -21,8 +21,6 @@ class GameLogic(val activity: GameActivity) {
         }
     val anime_names = activity.resources.getStringArray(R.array.anime_names)
     var winAnime = getAnimeName(seed)
-
-
 
     fun getAnimeNames(): Array<String> {
         val abc = generateABC()
@@ -35,10 +33,6 @@ class GameLogic(val activity: GameActivity) {
 
     private fun getAnimeName(n : Int) : String {
         var str : String = anime_names[n].split(" ")[2]
-        //var ch = str.toCharArray()
-        //ch[0] = str[0].toTitleCase()
-        //str = String(ch)
-        println(str)
         return str.subSequence(0, str.lastIndex).replace(Regex("_"), " ")
     }
     private fun unjumble(arr : Array<String>) : Array<String> {
@@ -58,19 +52,17 @@ class GameLogic(val activity: GameActivity) {
     }
 
     private fun generateSeed() : Int {
-        val animeList : MutableMap<String, *> = activity.getSharedPreferences("solved_anime", MODE_PRIVATE).all
+        val animeList : MutableMap<String, *> = activity.getPreferences(MODE_PRIVATE).all
         val list : MutableList<Int> = ArrayList()
         for (key in animeList.keys){
             val value = animeList[key]
-            if(value is Int) list.add(value)
+            if(value is Int && key != "score") list.add(value)
         }
         val set : MutableSet<Int> = HashSet(list)
-        println("Solved set: $set")
         val fullSet : MutableSet<Int> = mutableSetOf()
         repeat(NUMBER_OF_ANIME, {i -> fullSet.add(i)})
         val usableSet = SetUtils.complement(fullSet, set)
         if(usableSet.size == 0) {
-            println("call newGame()")
             activity.newGame()
             return 0
         }
@@ -79,8 +71,8 @@ class GameLogic(val activity: GameActivity) {
 
     private fun generateABC() : IntArray {
         val a : Int = Random().nextInt(NUMBER_OF_ANIME_IN_BASE)
-        val b : Int = (a * 10) % NUMBER_OF_ANIME_IN_BASE
-        val c : Int = (b * 10) % NUMBER_OF_ANIME_IN_BASE
+        val b : Int = ((a + 1) * 10) % NUMBER_OF_ANIME_IN_BASE
+        val c : Int = ((b + 1) * 10) % NUMBER_OF_ANIME_IN_BASE
         return intArrayOf(a, b, c)
     }
 
