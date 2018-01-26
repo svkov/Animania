@@ -19,6 +19,7 @@
         <activity
             android:name=".kt_activity.GameActivity"
             android:label="Game"
+            android:noHistory="true"
             android:parentActivityName=".activity.MenuActivity"/>
 
 

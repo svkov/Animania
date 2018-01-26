@@ -13,6 +13,7 @@ class GameLogic(val activity: GameActivity) {
 
     val MODE_PRIVATE = 0
     val NUMBER_OF_ANIME = activity.NUMBER_OF_ANIME
+    val NUMBER_OF_ANIME_IN_BASE = activity.NUMBER_OF_ANIME_IN_BASE
     var seed = generateSeed()
         set(value) {
             winAnime = getAnimeName(value)
@@ -77,9 +78,9 @@ class GameLogic(val activity: GameActivity) {
     }
 
     private fun generateABC() : IntArray {
-        val a : Int = Random().nextInt(NUMBER_OF_ANIME)
-        val b : Int = (a * 10) % NUMBER_OF_ANIME
-        val c : Int = (b * 10) % NUMBER_OF_ANIME
+        val a : Int = Random().nextInt(NUMBER_OF_ANIME_IN_BASE)
+        val b : Int = (a * 10) % NUMBER_OF_ANIME_IN_BASE
+        val c : Int = (b * 10) % NUMBER_OF_ANIME_IN_BASE
         return intArrayOf(a, b, c)
     }
 
