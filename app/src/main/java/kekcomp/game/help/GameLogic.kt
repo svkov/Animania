@@ -9,7 +9,7 @@ import java.util.*
  * Created by svyatoslav on 26.01.18.
  */
 
-class GameLogic(val activity: GameActivity) {
+class GameLogic(private val activity: GameActivity) {
 
     private val MODE_PRIVATE = 0
     private val NUMBER_OF_ANIME = activity.NUMBER_OF_ANIME
@@ -32,7 +32,7 @@ class GameLogic(val activity: GameActivity) {
     }
 
     private fun getAnimeName(n : Int) : String {
-        var str : String = anime_names[n].split(" ")[2]
+        val str : String = anime_names[n].split(" ")[2]
         return str.subSequence(0, str.lastIndex).replace(Regex("_"), " ")
     }
     private fun unjumble(arr : Array<String>) : Array<String> {
@@ -70,9 +70,10 @@ class GameLogic(val activity: GameActivity) {
     }
 
     private fun generateABC() : IntArray {
-        val a : Int = Random().nextInt(NUMBER_OF_ANIME_IN_BASE)
-        val b : Int = ((a + 1) * 10) % NUMBER_OF_ANIME_IN_BASE
-        val c : Int = ((b + 1) * 10) % NUMBER_OF_ANIME_IN_BASE
+        val list = MutableList(NUMBER_OF_ANIME_IN_BASE, {i -> i})
+        val a : Int = list.removeAt(Random().nextInt(NUMBER_OF_ANIME_IN_BASE))
+        val b : Int = list.removeAt(Random().nextInt(NUMBER_OF_ANIME_IN_BASE - 1))
+        val c : Int = list.removeAt(Random().nextInt(NUMBER_OF_ANIME_IN_BASE - 2))
         return intArrayOf(a, b, c)
     }
 

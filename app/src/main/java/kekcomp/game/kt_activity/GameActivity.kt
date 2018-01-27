@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
@@ -25,6 +26,8 @@ import java.util.prefs.Preferences
  * Created by svyatoslav on 26.01.18.
  */
 
+//TODO: change preferences to shared preferences for anime list
+
 class GameActivity : Activity() {
 
     private var buttons = arrayOfNulls<Button>(4)
@@ -33,7 +36,7 @@ class GameActivity : Activity() {
     private lateinit var scoreView: TextView
     private lateinit var relativeLayout: RelativeLayout
     private lateinit var animationUtils: kekcomp.game.utils.AnimationUtils
-    val NUMBER_OF_ANIME = 4
+    val NUMBER_OF_ANIME = 115
     val NUMBER_OF_ANIME_IN_BASE = 115
     private var score = 0
     private var seed = -1
@@ -42,22 +45,22 @@ class GameActivity : Activity() {
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var right: View.OnClickListener
     private lateinit var wrong:View.OnClickListener
+    private lateinit var rightAndWrongSharedPreferences : SharedPreferences
+    private lateinit var scoreSharedPreferences: SharedPreferences
 
     private var userName: String = ""
-        set(value) {
-            println("NEW USERNAME $value")
-            field = value
-        }
 
     private lateinit var gameLogic : GameLogic
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_activity)
+        scoreSharedPreferences = getSharedPreferences("score", Context.MODE_PRIVATE)
         gameLogic = GameLogic(this)
         initViews()
         initListeners()
-        score = getPreferences(Context.MODE_PRIVATE).getInt("score", 0)
+        //score = getPreferences(Context.MODE_PRIVATE).getInt("score", 0)
+        score = scoreSharedPreferences.getInt("score", 0)
         if(savedInstanceState == null){
             createNewGame()
         }
@@ -67,7 +70,8 @@ class GameActivity : Activity() {
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
         println("onSave()")
-        getPreferences(Context.MODE_PRIVATE).edit().putInt("score", score).apply()
+        //getPreferences(Context.MODE_PRIVATE).edit().putInt("score", score).apply()
+        scoreSharedPreferences.edit().putInt("score", score).apply()
         val images = imageViewGroup.images
         for (i in buttons.indices) {
             outState?.putString("button" + i, buttons[i]!!.text as String)
@@ -82,7 +86,8 @@ class GameActivity : Activity() {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
-        score = getPreferences(Context.MODE_PRIVATE).getInt("score", 0)
+        //score = getPreferences(Context.MODE_PRIVATE).getInt("score", 0)
+        score = scoreSharedPreferences.getInt("score", 0)
         seed = savedInstanceState!!.getInt("seed")
         gameLogic = GameLogic(this)
         gameLogic.seed = seed
@@ -115,7 +120,8 @@ class GameActivity : Activity() {
 
     public override fun onDestroy() {
         super.onDestroy()
-        getPreferences(Context.MODE_PRIVATE).edit().putInt("score", score).apply()
+        //getPreferences(Context.MODE_PRIVATE).edit().putInt("score", score).apply()
+        scoreSharedPreferences.edit().putInt("score", score).apply()
     }
 
     override fun onKeyDown(keycode: Int, e: KeyEvent): Boolean {
@@ -162,12 +168,13 @@ class GameActivity : Activity() {
     }
 
     private fun initListeners() {
+        rightAndWrongSharedPreferences = getSharedPreferences("solved_anime", Context.MODE_PRIVATE)
         right = View.OnClickListener {
             for(button in buttons) button!!.isClickable = false
             score += 10
             scoreView.text = score.toString()
             commitAnime(winAnime)
-            getSharedPreferences("solved_anime", Context.MODE_PRIVATE).edit().putInt("right", getSharedPreferences("solved_anime", Context.MODE_PRIVATE).getInt("right", 0) + 1).apply()
+            rightAndWrongSharedPreferences.edit().putInt("right", rightAndWrongSharedPreferences.getInt("right", 0) + 1).apply()
             it.setBackgroundResource(R.drawable.win)
             mediaPlayer = MediaPlayer.create(this@GameActivity, R.raw.right)
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
@@ -182,7 +189,7 @@ class GameActivity : Activity() {
             it.setBackgroundResource(R.drawable.lose)
             score -= 10
             scoreView.text = score.toString()
-            getSharedPreferences("solved_anime", Context.MODE_PRIVATE).edit().putInt("wrong", getPreferences(Context.MODE_PRIVATE).getInt("wrong", 0) + 1).apply()
+            rightAndWrongSharedPreferences.edit().putInt("wrong", rightAndWrongSharedPreferences.getInt("wrong", 0) + 1).apply()
             mediaPlayer = MediaPlayer.create(this@GameActivity, R.raw.wrong)
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
             mediaPlayer.start()
@@ -199,8 +206,9 @@ class GameActivity : Activity() {
         val editor = getPreferences(Context.MODE_PRIVATE).edit()
         editor.putBoolean(name + "_boolean", true)
         editor.putInt(name + "_int", seed)
-        editor.putInt("score", score)
+        //editor.putInt("score", score)
         editor.apply()
+        scoreSharedPreferences.edit().putInt("score", score).apply()
     }
 
     fun newGame(): String {
@@ -254,7 +262,8 @@ class GameActivity : Activity() {
 
     private fun resetGame() {
         getPreferences(Context.MODE_PRIVATE).edit().clear().apply()
-        getPreferences(Context.MODE_PRIVATE).edit().putInt("score", 0).apply()
+        //getPreferences(Context.MODE_PRIVATE).edit().putInt("score", 0).apply()
+        scoreSharedPreferences.edit().putInt("score", 0).apply()
     }
 
     private fun setSwipe() {

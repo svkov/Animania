@@ -24,6 +24,7 @@ import kekcomp.game.kt_activity.GameActivity;
  */
 public class MenuActivity extends Activity {
 
+    SharedPreferences sharedPreferences;
     AnimationUtils animationUtils;
 
     private LinearLayout linearLayout;
@@ -43,6 +44,7 @@ public class MenuActivity extends Activity {
     protected void onCreate(final Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_activity);
+        sharedPreferences = getSharedPreferences("solved_anime", MODE_PRIVATE);
         accepted = getString(R.string.accepted);
         wrong = getString(R.string.wrong);
         linearLayout = (LinearLayout) findViewById(R.id.menuLayout);
@@ -123,7 +125,7 @@ public class MenuActivity extends Activity {
         } else {
             res = "";
         }
-        return tv.getText()+" "+getSharedPreferences("solved_anime", MODE_PRIVATE).getInt(res, 0);
+        return tv.getText()+" "+sharedPreferences.getInt(res, 0);
     }
 
     @Override
@@ -166,12 +168,12 @@ public class MenuActivity extends Activity {
     }
 
     public void reset(){
-        SharedPreferences sharedPreferences = getSharedPreferences("solved_anime", MODE_PRIVATE);
         sharedPreferences.edit().clear().apply();
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
         editor.apply();
-        System.out.println("Score: " + getSharedPreferences("solved_anime", MODE_PRIVATE).getInt("score", 0));
+        getSharedPreferences("score", MODE_PRIVATE).edit().putInt("score", 0).apply();
+        System.out.println("Score: " + sharedPreferences.getInt("score", 0));
     }
 
     private void makeDialog() {
