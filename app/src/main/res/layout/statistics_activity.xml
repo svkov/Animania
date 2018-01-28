@@ -33,7 +33,7 @@
             android:layout_marginTop="44dp"
             android:layout_alignRight="@+id/backStatButton"
             android:layout_alignEnd="@+id/backStatButton"
-            android:textSize="35sp"
+            android:textSize="25sp"
             android:textColor="#FFF"/>
 
         <TextView
@@ -47,7 +47,7 @@
             android:layout_marginTop="29dp"
             android:layout_alignRight="@+id/okText"
             android:layout_alignEnd="@+id/okText"
-            android:textSize="35sp"
+            android:textSize="25sp"
             android:textColor="#FFF" />
 
     </RelativeLayout>

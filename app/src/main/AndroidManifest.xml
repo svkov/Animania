@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MenuActivity">
+        <activity android:name=".kt_activity.MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -20,24 +20,24 @@
             android:name=".kt_activity.GameActivity"
             android:label="Game"
             android:noHistory="true"
-            android:parentActivityName=".activity.MenuActivity"/>
+            android:parentActivityName=".kt_activity.MenuActivity"/>
 
 
         <activity
             android:name=".activity.GameActivity"
             android:label="Game"
-            android:parentActivityName=".activity.MenuActivity">
+            android:parentActivityName=".kt_activity.MenuActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MenuActivity"/>
+                android:value=".kt_activity.MenuActivity"/>
         </activity>
         <activity
             android:name=".activity.HighScoresActivity"
             android:label="High Scores"
-            android:parentActivityName=".activity.MenuActivity">
+            android:parentActivityName=".kt_activity.MenuActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".activity.MenuActivity"/>
+                android:value=".kt_activity.MenuActivity"/>
         </activity>
     </application>
 
