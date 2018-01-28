@@ -16,12 +16,9 @@ import android.widget.TextView;
 
 import kekcomp.game.R;
 import kekcomp.game.utils.AnimationUtils;
-import kekcomp.game.utils.Listeners;
 import kekcomp.game.kt_activity.GameActivity;
+import kekcomp.game.utils.Listeners;
 
-/**
- * Created by svyatoslav on 09.01.2016.
- */
 public class MenuActivity extends Activity {
 
     SharedPreferences sharedPreferences;

@@ -10,6 +10,7 @@
     <string name="wrong">Wrong:</string>
     <string name="havnths">"You didn't have any high scores yet"</string>
     <string name="win">"You solve all anime!\nYou can play again!\nWrite your name and press OK to continue"</string>
+    <string name="ok">OK</string>
     <string-array name="anime_names">
 	<item>
 		<string-array name="fairy_tail">

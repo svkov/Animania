@@ -28,8 +28,9 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
-import kekcomp.game.view.ImageViewGroup;
 import kekcomp.game.utils.Listeners;
+import kekcomp.game.view.ImageViewGroup;
+import kekcomp.game.utils.KtListeners;
 import kekcomp.game.R;
 import kekcomp.game.utils.SetUtils;
 
@@ -40,7 +41,7 @@ import kekcomp.game.utils.SetUtils;
  * Upd on 20.01.2016:
  * 448 strings of code in this class
  * 41 anime added
- * READY: pseudo-database, random generated anime on screen, 5 classes (GameActivity, Listeners, MenuActivity, ImageViewGroup, SetUtils),
+ * READY: pseudo-database, random generated anime on screen, 5 classes (GameActivity, KtListeners, MenuActivity, ImageViewGroup, SetUtils),
  * score, swipes, data-save (into bundle and into file)
  *
  * Upd on 26.01.2016

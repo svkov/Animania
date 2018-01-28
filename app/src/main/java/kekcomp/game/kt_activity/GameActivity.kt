@@ -10,23 +10,16 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.text.InputType
-import android.util.Log
 import android.view.KeyEvent
 import android.view.MotionEvent
 import android.view.View
 import android.widget.*
 import kekcomp.game.R
+import kekcomp.game.help.Constants
 import kekcomp.game.help.GameLogic
-import kekcomp.game.utils.Listeners
+import kekcomp.game.utils.KtListeners.hoverBig
 import kekcomp.game.view.ImageViewGroup
-import java.util.ArrayList
-import java.util.prefs.Preferences
-
-/**
- * Created by svyatoslav on 26.01.18.
- */
-
-//TODO: change preferences to shared preferences for anime list
+import java.util.*
 
 class GameActivity : Activity() {
 
@@ -56,12 +49,12 @@ class GameActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_activity)
-        scoreSharedPreferences = getSharedPreferences("score", Context.MODE_PRIVATE)
-        animeSharedPreferences = getSharedPreferences("anime", Context.MODE_PRIVATE)
+        scoreSharedPreferences = getSharedPreferences(Constants.SCORE, Context.MODE_PRIVATE)
+        animeSharedPreferences = getSharedPreferences(Constants.ANIME, Context.MODE_PRIVATE)
         gameLogic = GameLogic(this)
         initViews()
         initListeners()
-        score = scoreSharedPreferences.getInt("score", 0)
+        score = scoreSharedPreferences.getInt(Constants.SCORE, 0)
         if(savedInstanceState == null){
             createNewGame()
         }
@@ -70,7 +63,7 @@ class GameActivity : Activity() {
 
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
-        scoreSharedPreferences.edit().putInt("score", score).apply()
+        scoreSharedPreferences.edit().putInt(Constants.SCORE, score).apply()
         val images = imageViewGroup.images
         for (i in buttons.indices) {
             outState?.putString("button" + i, buttons[i]!!.text as String)
@@ -85,7 +78,7 @@ class GameActivity : Activity() {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
-        score = scoreSharedPreferences.getInt("score", 0)
+        score = scoreSharedPreferences.getInt(Constants.SCORE, 0)
         seed = savedInstanceState!!.getInt("seed")
         gameLogic = GameLogic(this)
         gameLogic.seed = seed
@@ -94,7 +87,7 @@ class GameActivity : Activity() {
             buttons[i]!!.text = savedInstanceState.getString("button" + i)
             var text = buttons[i]!!.text as String
             text = text.toLowerCase()
-            buttons[i]!!.setOnTouchListener(Listeners.hoverBig)
+            buttons[i]!!.setOnTouchListener(hoverBig)
             buttons[i]!!.isClickable = savedInstanceState.getBoolean("clickable" + i)
             val clickable = buttons[i]!!.isClickable
             if ((text == winAnime) and clickable) {
@@ -118,7 +111,7 @@ class GameActivity : Activity() {
 
     public override fun onDestroy() {
         super.onDestroy()
-        scoreSharedPreferences.edit().putInt("score", score).apply()
+        scoreSharedPreferences.edit().putInt(Constants.SCORE, score).apply()
     }
 
     override fun onKeyDown(keycode: Int, e: KeyEvent): Boolean {
@@ -140,7 +133,7 @@ class GameActivity : Activity() {
         image?.setImageResource(imageViewGroup.imageByIndex)
         setSwipe()
         for(button in buttons){
-            button?.setOnTouchListener(Listeners.hoverBig)
+            button?.setOnTouchListener(hoverBig)
         }
         setTextAndListenersOnButtons(names)
     }
@@ -165,13 +158,13 @@ class GameActivity : Activity() {
     }
 
     private fun initListeners() {
-        rightAndWrongSharedPreferences = getSharedPreferences("solved_anime", Context.MODE_PRIVATE)
+        rightAndWrongSharedPreferences = getSharedPreferences(Constants.SOLVED_ANIME, Context.MODE_PRIVATE)
         right = View.OnClickListener {
             for(button in buttons) button!!.isClickable = false
             score += 10
             scoreView.text = score.toString()
             commitAnime(winAnime)
-            rightAndWrongSharedPreferences.edit().putInt("right", rightAndWrongSharedPreferences.getInt("right", 0) + 1).apply()
+            rightAndWrongSharedPreferences.edit().putInt(Constants.RIGHT, rightAndWrongSharedPreferences.getInt(Constants.RIGHT, 0) + 1).apply()
             it.setBackgroundResource(R.drawable.win)
             mediaPlayer = MediaPlayer.create(this@GameActivity, R.raw.right)
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
@@ -186,7 +179,7 @@ class GameActivity : Activity() {
             it.setBackgroundResource(R.drawable.lose)
             score -= 10
             scoreView.text = score.toString()
-            rightAndWrongSharedPreferences.edit().putInt("wrong", rightAndWrongSharedPreferences.getInt("wrong", 0) + 1).apply()
+            rightAndWrongSharedPreferences.edit().putInt(Constants.WRONG, rightAndWrongSharedPreferences.getInt(Constants.WRONG, 0) + 1).apply()
             mediaPlayer = MediaPlayer.create(this@GameActivity, R.raw.wrong)
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC)
             mediaPlayer.start()
@@ -204,7 +197,7 @@ class GameActivity : Activity() {
         editor.putBoolean(name + "_boolean", true)
         editor.putInt(name + "_int", seed)
         editor.apply()
-        scoreSharedPreferences.edit().putInt("score", score).apply()
+        scoreSharedPreferences.edit().putInt(Constants.SCORE, score).apply()
     }
 
     fun newGame(): String {
@@ -214,7 +207,7 @@ class GameActivity : Activity() {
         builder.setView(input)
         builder.setMessage(R.string.win)
                 .setCancelable(false)
-                .setPositiveButton("OK") { _, _ ->
+                .setPositiveButton(getString(R.string.ok)) { _, _ ->
                     userName = input.text.toString()
                     println(input.text.toString())
                     if (needToUpdateHighScore()) {
@@ -229,7 +222,7 @@ class GameActivity : Activity() {
     }
 
     private fun needToUpdateHighScore() : Boolean {
-        val sharedPreferences = getSharedPreferences("high_score", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(Constants.HIGH_SCORE, Context.MODE_PRIVATE)
         val map = sharedPreferences.all
         val scores = ArrayList<Int>()
         for (key in map.keys) {
@@ -252,13 +245,13 @@ class GameActivity : Activity() {
     }
 
     private fun commitHighScore(name: String) {
-        getSharedPreferences("high_score", Context.MODE_PRIVATE).edit().putInt(name, score).apply()
+        getSharedPreferences(Constants.HIGH_SCORE, Context.MODE_PRIVATE).edit().putInt(name, score).apply()
         score = 0
     }
 
     private fun resetGame() {
         animeSharedPreferences.edit().clear().apply()
-        scoreSharedPreferences.edit().putInt("score", 0).apply()
+        scoreSharedPreferences.edit().putInt(Constants.SCORE, 0).apply()
     }
 
     private fun setSwipe() {
@@ -268,16 +261,19 @@ class GameActivity : Activity() {
         image?.setOnTouchListener({ view: View, motionEvent: MotionEvent ->
             if(motionEvent.action == MotionEvent.ACTION_DOWN){
                 x1 = motionEvent.x
+                view.performClick()
                 return@setOnTouchListener true
             } else if(motionEvent.action == MotionEvent.ACTION_UP){
                 x2 = motionEvent.x
                 when {
                     x1 - x2 > delta -> {
                         rightSwipe()
+                        view.performClick()
                         return@setOnTouchListener true
                     }
                     x2 - x1 > delta -> {
                         leftSwipe()
+                        view.performClick()
                         return@setOnTouchListener true
                     }
                     else -> return@setOnTouchListener false

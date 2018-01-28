@@ -5,9 +5,6 @@ import android.view.View;
 
 import kekcomp.game.R;
 
-/**
- * Created by svyatoslav on 1/15/16.
- */
 public class Listeners {
     public static final View.OnTouchListener hoverBig = new View.OnTouchListener() {
         @Override
@@ -46,6 +43,7 @@ public class Listeners {
                     v.setBackgroundResource(R.drawable.button);
                     break;
             }
+
             return false;
         }
     };
