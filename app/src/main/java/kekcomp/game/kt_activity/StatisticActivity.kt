@@ -54,6 +54,11 @@ class StatisticActivity : Activity(), IInit {
         animationUtils.fadeInAllLayoutChildren(relativeLayout)
     }
 
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        init()
+    }
+
     private fun generateStatString(tv: TextView?): String {
         var res = tv?.text as String
         when (res) {

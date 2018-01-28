@@ -45,6 +45,11 @@ class SettingsActivity : Activity(), IInit {
         })
     }
 
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        init()
+    }
+
     private fun makeDialog() {
         val clickListener = DialogInterface.OnClickListener { _, which ->
             when (which) {
