@@ -146,14 +146,14 @@ class GameActivity : Activity() {
     }
 
     private fun initViews() {
-        relativeLayout = findViewById(R.id.relativeLayout) as RelativeLayout
+        relativeLayout = findViewById(R.id.relativeLayout)
         animationUtils = kekcomp.game.utils.AnimationUtils(relativeLayout)
-        scoreView = findViewById(R.id.scoreView) as TextView
-        image = findViewById(R.id.image) as ImageView
-        buttons[0] = findViewById(R.id.rightButton) as Button
-        buttons[1] = findViewById(R.id.wrongAnswer1) as Button
-        buttons[2] = findViewById(R.id.wrongAnswer2) as Button
-        buttons[3] = findViewById(R.id.wrongAnswer3) as Button
+        scoreView = findViewById(R.id.scoreView)
+        image = findViewById(R.id.image)
+        buttons[0] = findViewById(R.id.rightButton)
+        buttons[1] = findViewById(R.id.wrongAnswer1)
+        buttons[2] = findViewById(R.id.wrongAnswer2)
+        buttons[3] = findViewById(R.id.wrongAnswer3)
         animationUtils.fadeInAllLayoutChildren(relativeLayout)
     }
 

@@ -39,6 +39,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".kt_activity.MenuActivity"/>
         </activity>
+        <activity android:name=".kt_activity.SettingsActivity"
+            android:label="Settings"/>
+        <activity android:name=".kt_activity.StatisticActivity"
+            android:label="Statistics"/>
     </application>
 
 </manifest>

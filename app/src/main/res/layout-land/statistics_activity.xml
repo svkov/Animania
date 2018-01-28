@@ -1,48 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/game_background_v">
+    android:layout_gravity="center_horizontal"
+    android:id="@+id/statisticsLayout"
+    android:background="@drawable/background">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal">
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button"
+        android:text="@string/back"
+        android:textAlignment="center"
+        android:textSize="25sp" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back"
-            android:id="@+id/backStatButton"
-            android:background="@drawable/button"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:textSize="25sp"
-            android:textAlignment="center"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/accepted"
+        android:id="@+id/okText"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/backButton"
+        android:layout_alignEnd="@+id/backButton"
+        android:textSize="25sp"
+        android:textColor="#FFF"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/accepted"
-            android:id="@+id/okText"
-            android:textSize="40sp"
-            android:textColor="#FFF"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wrong"
+        android:id="@+id/wrongText"
+        android:layout_below="@+id/okText"
+        android:layout_alignStart="@+id/okText"
+        android:textSize="25sp"
+        android:textColor="#FFF" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/wrong"
-            android:id="@+id/wrongText"
-            android:layout_below="@+id/okText"
-            android:layout_alignLeft="@+id/okText"
-            android:layout_alignStart="@+id/okText"
-            android:layout_marginTop="29dp"
-            android:layout_alignRight="@+id/okText"
-            android:layout_alignEnd="@+id/okText"
-            android:textSize="40sp"
-            android:textColor="#FFF"/>
-
-    </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>

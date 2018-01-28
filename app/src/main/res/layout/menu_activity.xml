@@ -7,36 +7,38 @@
     android:id="@+id/menuLayout">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:text="@string/new_game"
-        android:background="@drawable/button"
         android:id="@+id/newGameButton"
-        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button"
         android:onClick="newGame"
-        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50sp"
+        android:text="@string/new_game"
         android:textAlignment="center"
-        android:layout_marginTop="70dp" />
+        android:textSize="20sp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:text="@string/statistics"
         android:id="@+id/statisticsButton"
-        android:textSize="20sp"
-        android:background="@drawable/button"
-        android:textAlignment="center"
-        android:layout_gravity="center_horizontal" />
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:text="@string/settings"
-        android:id="@+id/settingsButton"
         android:layout_gravity="center_horizontal"
-        android:textSize="20sp"
         android:background="@drawable/button"
-        android:textAlignment="center"/>
+        android:text="@string/statistics"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:onClick="statistics"/>
+
+    <Button
+        android:id="@+id/settingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/button"
+        android:text="@string/settings"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:onClick="settings"/>
 
     <Button
         android:textSize="20sp"

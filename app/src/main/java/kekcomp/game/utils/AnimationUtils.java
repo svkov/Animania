@@ -52,6 +52,7 @@ public class AnimationUtils {
             View v = relativeLayout.getChildAt(i);
             fadeOut.setDuration(1000);
             v.startAnimation(fadeOut);
+            v.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -70,6 +71,7 @@ public class AnimationUtils {
             View v = relativeLayout.getChildAt(i);
             fadeOut.setDuration(1000);
             v.startAnimation(fadeOut);
+            v.setVisibility(View.INVISIBLE);
         }
     }
 

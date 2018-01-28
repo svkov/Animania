@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/background"
-    android:id="@+id/menuLayout"
-    tools:context=".activity.MenuActivity">
+    android:id="@+id/menuLayout">
 
     <Button
         android:layout_width="250dp"
@@ -28,7 +26,8 @@
         android:textSize="20sp"
         android:background="@drawable/button"
         android:textAlignment="center"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="statistics"/>
 
     <Button
         android:layout_width="250dp"
@@ -38,7 +37,8 @@
         android:layout_gravity="center_horizontal"
         android:textSize="20sp"
         android:background="@drawable/button"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:onClick="settings"/>
 
     <Button
         android:textSize="20sp"

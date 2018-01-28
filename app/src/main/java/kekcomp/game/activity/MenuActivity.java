@@ -94,7 +94,7 @@ public class MenuActivity extends Activity {
                 animationUtils.fadeInAllLayoutChildren(relativeLayout);
                 accepted.setText(generateStatString(accepted));
                 wrong.setText(generateStatString(wrong));
-                backButton = (Button) findViewById(R.id.backStatButton);
+                backButton = (Button) findViewById(R.id.backButton);
                 backButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
