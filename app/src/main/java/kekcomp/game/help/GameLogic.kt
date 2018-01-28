@@ -11,7 +11,6 @@ import java.util.*
 
 class GameLogic(private val activity: GameActivity) {
 
-    private val MODE_PRIVATE = 0
     private val NUMBER_OF_ANIME = activity.NUMBER_OF_ANIME
     private val NUMBER_OF_ANIME_IN_BASE = activity.NUMBER_OF_ANIME_IN_BASE
     var seed = generateSeed()
@@ -52,7 +51,7 @@ class GameLogic(private val activity: GameActivity) {
     }
 
     private fun generateSeed() : Int {
-        val animeList : MutableMap<String, *> = activity.getPreferences(MODE_PRIVATE).all
+        val animeList : MutableMap<String, *> = activity.animeSharedPreferences.all
         val list : MutableList<Int> = ArrayList()
         for (key in animeList.keys){
             val value = animeList[key]

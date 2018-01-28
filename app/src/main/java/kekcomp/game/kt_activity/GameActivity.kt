@@ -47,6 +47,7 @@ class GameActivity : Activity() {
     private lateinit var wrong:View.OnClickListener
     private lateinit var rightAndWrongSharedPreferences : SharedPreferences
     private lateinit var scoreSharedPreferences: SharedPreferences
+    lateinit var animeSharedPreferences: SharedPreferences
 
     private var userName: String = ""
 
@@ -56,10 +57,10 @@ class GameActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_activity)
         scoreSharedPreferences = getSharedPreferences("score", Context.MODE_PRIVATE)
+        animeSharedPreferences = getSharedPreferences("anime", Context.MODE_PRIVATE)
         gameLogic = GameLogic(this)
         initViews()
         initListeners()
-        //score = getPreferences(Context.MODE_PRIVATE).getInt("score", 0)
         score = scoreSharedPreferences.getInt("score", 0)
         if(savedInstanceState == null){
             createNewGame()
@@ -69,8 +70,6 @@ class GameActivity : Activity() {
 
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
-        println("onSave()")
-        //getPreferences(Context.MODE_PRIVATE).edit().putInt("score", score).apply()
         scoreSharedPreferences.edit().putInt("score", score).apply()
         val images = imageViewGroup.images
         for (i in buttons.indices) {
@@ -86,7 +85,6 @@ class GameActivity : Activity() {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
-        //score = getPreferences(Context.MODE_PRIVATE).getInt("score", 0)
         score = scoreSharedPreferences.getInt("score", 0)
         seed = savedInstanceState!!.getInt("seed")
         gameLogic = GameLogic(this)
@@ -120,7 +118,6 @@ class GameActivity : Activity() {
 
     public override fun onDestroy() {
         super.onDestroy()
-        //getPreferences(Context.MODE_PRIVATE).edit().putInt("score", score).apply()
         scoreSharedPreferences.edit().putInt("score", score).apply()
     }
 
@@ -203,10 +200,9 @@ class GameActivity : Activity() {
     }
 
     private fun commitAnime(name: String) {
-        val editor = getPreferences(Context.MODE_PRIVATE).edit()
+        val editor = animeSharedPreferences.edit()
         editor.putBoolean(name + "_boolean", true)
         editor.putInt(name + "_int", seed)
-        //editor.putInt("score", score)
         editor.apply()
         scoreSharedPreferences.edit().putInt("score", score).apply()
     }
@@ -261,8 +257,7 @@ class GameActivity : Activity() {
     }
 
     private fun resetGame() {
-        getPreferences(Context.MODE_PRIVATE).edit().clear().apply()
-        //getPreferences(Context.MODE_PRIVATE).edit().putInt("score", 0).apply()
+        animeSharedPreferences.edit().clear().apply()
         scoreSharedPreferences.edit().putInt("score", 0).apply()
     }
 

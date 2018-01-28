@@ -168,6 +168,7 @@ public class MenuActivity extends Activity {
     }
 
     public void reset(){
+        getSharedPreferences("anime", MODE_PRIVATE).edit().clear().apply();
         sharedPreferences.edit().clear().apply();
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.clear();
