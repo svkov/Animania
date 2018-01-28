@@ -24,14 +24,6 @@
 
 
         <activity
-            android:name=".activity.GameActivity"
-            android:label="Game"
-            android:parentActivityName=".kt_activity.MenuActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".kt_activity.MenuActivity"/>
-        </activity>
-        <activity
             android:name=".activity.HighScoresActivity"
             android:label="High Scores"
             android:parentActivityName=".kt_activity.MenuActivity">
