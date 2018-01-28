@@ -17,7 +17,6 @@ import kekcomp.game.utils.KtListeners
 class SettingsActivity : Activity(), IInit {
 
     private lateinit var animationUtils: AnimationUtils
-    private lateinit var sharedPreferences: SharedPreferences
 
     private var resetLayout : RelativeLayout? = null
 

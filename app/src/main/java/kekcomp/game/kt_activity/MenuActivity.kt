@@ -20,7 +20,7 @@ import kekcomp.game.help.Constants
 import kekcomp.game.utils.AnimationUtils
 import kekcomp.game.utils.KtListeners.hoverSmall
 
-class MenuActivity : Activity() {
+class MenuActivity : Activity(), IInit {
 
     private lateinit var sharedPreferences: SharedPreferences
     private lateinit var animationUtils: AnimationUtils
@@ -45,7 +45,7 @@ class MenuActivity : Activity() {
         init()
     }
 
-    private fun init(){
+    override fun init(){
         sharedPreferences = getSharedPreferences(Constants.SOLVED_ANIME, Context.MODE_PRIVATE)
         linearLayout = findViewById(R.id.menuLayout)
         newGameButton = findViewById(R.id.newGameButton)

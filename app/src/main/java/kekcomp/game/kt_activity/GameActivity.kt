@@ -21,7 +21,7 @@ import kekcomp.game.utils.KtListeners.hoverBig
 import kekcomp.game.view.ImageViewGroup
 import java.util.*
 
-class GameActivity : Activity() {
+class GameActivity : Activity(), IInit {
 
     private var buttons = arrayOfNulls<Button>(4)
     private var image: ImageView? = null
@@ -49,15 +49,19 @@ class GameActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_activity)
+        init()
+        if(savedInstanceState == null){
+            createNewGame()
+        }
+    }
+
+    override fun init() {
         scoreSharedPreferences = getSharedPreferences(Constants.SCORE, Context.MODE_PRIVATE)
         animeSharedPreferences = getSharedPreferences(Constants.ANIME, Context.MODE_PRIVATE)
         gameLogic = GameLogic(this)
         initViews()
         initListeners()
         score = scoreSharedPreferences.getInt(Constants.SCORE, 0)
-        if(savedInstanceState == null){
-            createNewGame()
-        }
         scoreView.text = score.toString()
     }
 

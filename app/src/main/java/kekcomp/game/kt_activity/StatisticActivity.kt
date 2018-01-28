@@ -41,7 +41,6 @@ class StatisticActivity : Activity(), IInit {
         acceptedTextView = findViewById(R.id.okText)
         wrongTextView = findViewById(R.id.wrongText)
         backButton = findViewById(R.id.backButton)
-        println("BACK IS INIT")
         animationUtils = AnimationUtils(relativeLayout)
 
         acceptedTextView?.text = generateStatString(acceptedTextView)
@@ -53,10 +52,6 @@ class StatisticActivity : Activity(), IInit {
         })
 
         animationUtils.fadeInAllLayoutChildren(relativeLayout)
-    }
-
-    public fun back(v : View){
-
     }
 
     private fun generateStatString(tv: TextView?): String {
