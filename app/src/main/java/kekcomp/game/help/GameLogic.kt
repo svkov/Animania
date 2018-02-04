@@ -70,9 +70,10 @@ class GameLogic(private val activity: GameActivity) {
 
     private fun generateABC() : IntArray {
         val list = MutableList(NUMBER_OF_ANIME_IN_BASE, {i -> i})
-        val a : Int = list.removeAt(Random().nextInt(NUMBER_OF_ANIME_IN_BASE))
-        val b : Int = list.removeAt(Random().nextInt(NUMBER_OF_ANIME_IN_BASE - 1))
-        val c : Int = list.removeAt(Random().nextInt(NUMBER_OF_ANIME_IN_BASE - 2))
+        list.removeAt(seed)
+        val a : Int = list.removeAt(Random().nextInt(NUMBER_OF_ANIME_IN_BASE - 1))
+        val b : Int = list.removeAt(Random().nextInt(NUMBER_OF_ANIME_IN_BASE - 2))
+        val c : Int = list.removeAt(Random().nextInt(NUMBER_OF_ANIME_IN_BASE - 3))
         return intArrayOf(a, b, c)
     }
 

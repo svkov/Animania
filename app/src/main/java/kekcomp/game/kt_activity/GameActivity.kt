@@ -29,8 +29,8 @@ class GameActivity : Activity(), IInit {
     private lateinit var scoreView: TextView
     private lateinit var relativeLayout: RelativeLayout
     private lateinit var animationUtils: kekcomp.game.utils.AnimationUtils
-    val NUMBER_OF_ANIME = 115
-    val NUMBER_OF_ANIME_IN_BASE = 115
+    val NUMBER_OF_ANIME = 113
+    val NUMBER_OF_ANIME_IN_BASE = 113
     private var score = 0
     private var seed = -1
     private lateinit var names: Array<String>
