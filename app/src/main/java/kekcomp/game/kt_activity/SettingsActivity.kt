@@ -4,7 +4,6 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Button
@@ -68,7 +67,7 @@ class SettingsActivity : Activity(), IInit {
 
     private fun reset() {
         getSharedPreferences(Constants.ANIME, Context.MODE_PRIVATE).edit().clear().apply()
-        getSharedPreferences(Constants.SCORE, Context.MODE_PRIVATE).edit().clear().apply()
+        getSharedPreferences(Constants.CURRENT, Context.MODE_PRIVATE).edit().clear().apply()
     }
 
 

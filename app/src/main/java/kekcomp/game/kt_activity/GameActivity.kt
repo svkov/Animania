@@ -33,13 +33,15 @@ class GameActivity : Activity(), IInit {
     val NUMBER_OF_ANIME_IN_BASE = 113
     private var score = 0
     private var seed = -1
+    private var isCommited = false
     private lateinit var names: Array<String>
     private lateinit var winAnime : String
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var right: View.OnClickListener
     private lateinit var wrong:View.OnClickListener
     private lateinit var rightAndWrongSharedPreferences : SharedPreferences
-    private lateinit var scoreSharedPreferences: SharedPreferences
+    private lateinit var currentGameSharedPreferences: SharedPreferences
+    private lateinit var scoreSharedPreferences : SharedPreferences
     lateinit var animeSharedPreferences: SharedPreferences
 
     private var userName: String = ""
@@ -50,49 +52,69 @@ class GameActivity : Activity(), IInit {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_activity)
         init()
-        if(savedInstanceState == null){
-            createNewGame()
-        }
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        recreate()
     }
 
     override fun init() {
-        scoreSharedPreferences = getSharedPreferences(Constants.SCORE, Context.MODE_PRIVATE)
+        currentGameSharedPreferences = getSharedPreferences(Constants.CURRENT, Context.MODE_PRIVATE)
         animeSharedPreferences = getSharedPreferences(Constants.ANIME, Context.MODE_PRIVATE)
+        scoreSharedPreferences = getSharedPreferences(Constants.SCORE, Context.MODE_PRIVATE)
         gameLogic = GameLogic(this)
+        score = scoreSharedPreferences.getInt(Constants.SCORE, 0)
         initViews()
         initListeners()
-        score = scoreSharedPreferences.getInt(Constants.SCORE, 0)
         scoreView.text = score.toString()
+        if(currentGameSharedPreferences.getInt(Constants.SEED, -1) != -1){
+            restoreData()
+        } else {
+            gameLogic.seed = currentGameSharedPreferences.getInt(Constants.SEED, -1)
+            createNewGame()
+            setSwipe()
+        }
+
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
-        scoreSharedPreferences.edit().putInt(Constants.SCORE, score).apply()
-        val images = imageViewGroup.images
-        for (i in buttons.indices) {
-            outState?.putString("button" + i, buttons[i]!!.text as String)
-            outState?.putBoolean("clickable" + i, buttons[i]!!.isClickable)
-        }
-        for (i in images.indices) {
-            outState?.putInt("image" + i, images[i])
-        }
-        outState?.putInt("seed", seed)
-        outState?.putInt("current_image", imageViewGroup.index)
+        saveData()
     }
 
-    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
-        super.onRestoreInstanceState(savedInstanceState)
+    fun saveScore(){
+        scoreSharedPreferences.edit().putInt(Constants.SCORE, score).apply()
+    }
+
+    private fun saveData(){
+        val outState = currentGameSharedPreferences.edit()
+        saveScore()
+        val images = imageViewGroup.images
+        for (i in buttons.indices) {
+            outState.putString("button" + i, buttons[i]!!.text as String)
+            outState.putBoolean("clickable" + i, buttons[i]!!.isClickable)
+        }
+        for (i in images.indices) {
+            outState.putInt("image" + i, images[i])
+        }
+        outState.putInt(Constants.SEED, seed)
+        outState.putInt("current_image", imageViewGroup.index)
+        outState.apply()
+    }
+
+    fun restoreData(){
         score = scoreSharedPreferences.getInt(Constants.SCORE, 0)
-        seed = savedInstanceState!!.getInt("seed")
+        seed = currentGameSharedPreferences.getInt(Constants.SEED, -1)
         gameLogic = GameLogic(this)
         gameLogic.seed = seed
         winAnime = gameLogic.winAnime
         for (i in buttons.indices) {
-            buttons[i]!!.text = savedInstanceState.getString("button" + i)
+            buttons[i]!!.text = currentGameSharedPreferences.getString("button" + i, "")
             var text = buttons[i]!!.text as String
             text = text.toLowerCase()
             buttons[i]!!.setOnTouchListener(hoverBig)
-            buttons[i]!!.isClickable = savedInstanceState.getBoolean("clickable" + i)
+            buttons[i]!!.isClickable = currentGameSharedPreferences.getBoolean("clickable" + i, true)
             val clickable = buttons[i]!!.isClickable
             if ((text == winAnime) and clickable) {
                 buttons[i]!!.setOnClickListener(right)
@@ -105,28 +127,17 @@ class GameActivity : Activity(), IInit {
             buttons[i]!!.isClickable = clickable
         }
         val img = IntArray(4)
-        repeat(4, {i -> img[i] = savedInstanceState.getInt("image" + i)})
+        repeat(4, {i -> img[i] = currentGameSharedPreferences.getInt("image" + i, 0)})
 
-        val index = savedInstanceState.getInt("current_image")
+        val index = currentGameSharedPreferences.getInt("current_image", 0)
         imageViewGroup = ImageViewGroup(img, index)
         image!!.setImageResource(imageViewGroup.imageByIndex)
         setSwipe()
     }
 
-    public override fun onDestroy() {
-        super.onDestroy()
-        scoreSharedPreferences.edit().putInt(Constants.SCORE, score).apply()
-    }
-
-    override fun onKeyDown(keycode: Int, e: KeyEvent): Boolean {
-        when (keycode) {
-            KeyEvent.KEYCODE_BACK -> {
-                animationUtils.fadeOutAllLayoutChildren(relativeLayout)
-                Handler().postDelayed({ finish() }, animationUtils.fadeInDuration - 150)
-                return true
-            }
-        }
-        return super.onKeyDown(keycode, e)
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        restoreData()
     }
 
     private fun createNewGame() {
@@ -135,7 +146,6 @@ class GameActivity : Activity(), IInit {
         winAnime = gameLogic.winAnime
         imageViewGroup = generateImageViewGroup()
         image?.setImageResource(imageViewGroup.imageByIndex)
-        setSwipe()
         for(button in buttons){
             button?.setOnTouchListener(hoverBig)
         }
@@ -197,11 +207,13 @@ class GameActivity : Activity(), IInit {
     }
 
     private fun commitAnime(name: String) {
+        isCommited = true
         val editor = animeSharedPreferences.edit()
         editor.putBoolean(name + "_boolean", true)
         editor.putInt(name + "_int", seed)
         editor.apply()
-        scoreSharedPreferences.edit().putInt(Constants.SCORE, score).apply()
+        saveData()
+        currentGameSharedPreferences.edit().clear().apply()
     }
 
     fun newGame(): String {
@@ -255,7 +267,31 @@ class GameActivity : Activity(), IInit {
 
     private fun resetGame() {
         animeSharedPreferences.edit().clear().apply()
-        scoreSharedPreferences.edit().putInt(Constants.SCORE, 0).apply()
+        currentGameSharedPreferences.edit().clear().apply()
+        scoreSharedPreferences.edit().clear().apply()
+    }
+
+    public override fun onDestroy() {
+        super.onDestroy()
+        saveScore()
+        if(isCommited) return else saveData()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        saveScore()
+        if(isCommited) return else saveData()
+    }
+
+    override fun onKeyDown(keycode: Int, e: KeyEvent): Boolean {
+        when (keycode) {
+            KeyEvent.KEYCODE_BACK -> {
+                animationUtils.fadeOutAllLayoutChildren(relativeLayout)
+                Handler().postDelayed({ finish() }, animationUtils.fadeInDuration - 150)
+                return true
+            }
+        }
+        return super.onKeyDown(keycode, e)
     }
 
     private fun setSwipe() {

@@ -108,14 +108,6 @@
         </string-array>
 	</item>
 	<item>
-		<string-array name="kore_wa_zombi_desu_ka">
-            <item>kore_wa_zombi_desu_ka3</item>
-            <item>kore_wa_zombi_desu_ka1</item>
-            <item>kore_wa_zombi_desu_ka2</item>
-            <item>kore_wa_zombi_desu_ka4</item>
-        </string-array>
-	</item>
-	<item>
 		<string-array name="elfen_lied">
             <item>elfen_lied2</item>
             <item>elfen_lied4</item>
@@ -705,14 +697,6 @@
             <item>overlord2</item>
             <item>overlord4</item>
             <item>overlord1</item>
-        </string-array>
-	</item>
-	<item>
-		<string-array name="7_deadly_sins">
-            <item>seven_deadly_sins3</item>
-            <item>seven_deadly_sins2</item>
-            <item>seven_deadly_sins1</item>
-            <item>seven_deadly_sins4</item>
         </string-array>
 	</item>
 	<item>

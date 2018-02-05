@@ -15,6 +15,7 @@ class GameLogic(private val activity: GameActivity) {
     private val NUMBER_OF_ANIME_IN_BASE = activity.NUMBER_OF_ANIME_IN_BASE
     var seed = generateSeed()
         set(value) {
+            if(value == -1) return
             winAnime = getAnimeName(value)
             field = value
         }
