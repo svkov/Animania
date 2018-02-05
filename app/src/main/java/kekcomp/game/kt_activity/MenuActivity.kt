@@ -1,9 +1,7 @@
 package kekcomp.game.kt_activity
 
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -12,8 +10,6 @@ import android.view.KeyEvent
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import android.widget.TextView
 import kekcomp.game.R
 import kekcomp.game.activity.HighScoresActivity
 import kekcomp.game.help.Constants
@@ -45,7 +41,22 @@ class MenuActivity : Activity(), IInit {
         init()
     }
 
+    override fun onStart() {
+        super.onStart()
+        init()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        init()
+    }
+
     override fun init(){
+        println(getSharedPreferences(Constants.GAME_IS_RUNNING, Context.MODE_PRIVATE).getBoolean(Constants.GAME_IS_RUNNING, false))
+        if(getSharedPreferences(Constants.GAME_IS_RUNNING, Context.MODE_PRIVATE).getBoolean(Constants.GAME_IS_RUNNING, false)){
+            val intent = Intent(this@MenuActivity, GameActivity::class.java)
+            startActivity(intent)
+        }
         sharedPreferences = getSharedPreferences(Constants.SOLVED_ANIME, Context.MODE_PRIVATE)
         linearLayout = findViewById(R.id.menuLayout)
         newGameButton = findViewById(R.id.newGameButton)

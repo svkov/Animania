@@ -2,6 +2,7 @@ package kekcomp.game.help;
 
 public class Constants {
 
+    public static String GAME_IS_RUNNING = "game_is_running";
     public static String SCORE = "score";
     public static String SEED = "seed";
     public static String SOLVED_ANIME = "solved_anime";

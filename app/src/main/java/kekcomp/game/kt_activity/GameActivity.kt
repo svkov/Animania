@@ -29,11 +29,13 @@ class GameActivity : Activity(), IInit {
     private lateinit var scoreView: TextView
     private lateinit var relativeLayout: RelativeLayout
     private lateinit var animationUtils: kekcomp.game.utils.AnimationUtils
-    val NUMBER_OF_ANIME = 113
-    val NUMBER_OF_ANIME_IN_BASE = 113
+    fun getNumberOfAnime() = 113 // change for test and debug
+    fun getNumberOfAnimeInBase() = 113
     private var score = 0
     private var seed = -1
     private var isCommited = false
+    private var isStopped = false
+    private var isCreated = false
     private lateinit var names: Array<String>
     private lateinit var winAnime : String
     private lateinit var mediaPlayer: MediaPlayer
@@ -56,10 +58,41 @@ class GameActivity : Activity(), IInit {
 
     override fun onRestart() {
         super.onRestart()
-        recreate()
+        if(isStopped){
+            isStopped = false
+            recreate()
+            finish()
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if(isStopped) {
+            isStopped = false
+            recreate()
+            finish()
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        isStopped = true
+        animationUtils.fadeOutAllLayoutChildren(relativeLayout)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        saveScore()
+        if(!isCommited) saveData()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        isStopped = false
     }
 
     override fun init() {
+        getSharedPreferences(Constants.GAME_IS_RUNNING, Context.MODE_PRIVATE).edit().putBoolean(Constants.GAME_IS_RUNNING, true).apply()
         currentGameSharedPreferences = getSharedPreferences(Constants.CURRENT, Context.MODE_PRIVATE)
         animeSharedPreferences = getSharedPreferences(Constants.ANIME, Context.MODE_PRIVATE)
         scoreSharedPreferences = getSharedPreferences(Constants.SCORE, Context.MODE_PRIVATE)
@@ -201,11 +234,6 @@ class GameActivity : Activity(), IInit {
         }
     }
 
-    public override fun onStop() {
-        super.onStop()
-        animationUtils.fadeOutAllLayoutChildren(relativeLayout)
-    }
-
     private fun commitAnime(name: String) {
         isCommited = true
         val editor = animeSharedPreferences.edit()
@@ -266,32 +294,28 @@ class GameActivity : Activity(), IInit {
     }
 
     private fun resetGame() {
+        getSharedPreferences(Constants.GAME_IS_RUNNING, Context.MODE_PRIVATE).edit().putBoolean(Constants.GAME_IS_RUNNING, false).apply()
         animeSharedPreferences.edit().clear().apply()
         currentGameSharedPreferences.edit().clear().apply()
         scoreSharedPreferences.edit().clear().apply()
-    }
-
-    public override fun onDestroy() {
-        super.onDestroy()
-        saveScore()
-        if(isCommited) return else saveData()
-    }
-
-    override fun onPause() {
-        super.onPause()
-        saveScore()
-        if(isCommited) return else saveData()
     }
 
     override fun onKeyDown(keycode: Int, e: KeyEvent): Boolean {
         when (keycode) {
             KeyEvent.KEYCODE_BACK -> {
                 animationUtils.fadeOutAllLayoutChildren(relativeLayout)
-                Handler().postDelayed({ finish() }, animationUtils.fadeInDuration - 150)
+                Handler().postDelayed({ goToMenu() }, animationUtils.fadeInDuration - 150)
                 return true
             }
         }
         return super.onKeyDown(keycode, e)
+    }
+
+    private fun goToMenu() {
+        //val intent = Intent(this@GameActivity, MenuActivity::class.java)
+        //startActivity(intent)
+        getSharedPreferences(Constants.GAME_IS_RUNNING, Context.MODE_PRIVATE).edit().putBoolean(Constants.GAME_IS_RUNNING, false).apply()
+        finish()
     }
 
     private fun setSwipe() {

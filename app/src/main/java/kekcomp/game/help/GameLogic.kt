@@ -11,8 +11,8 @@ import java.util.*
 
 class GameLogic(private val activity: GameActivity) {
 
-    private val NUMBER_OF_ANIME = activity.NUMBER_OF_ANIME
-    private val NUMBER_OF_ANIME_IN_BASE = activity.NUMBER_OF_ANIME_IN_BASE
+    private val NUMBER_OF_ANIME = activity.getNumberOfAnime()
+    private val NUMBER_OF_ANIME_IN_BASE = activity.getNumberOfAnimeInBase()
     var seed = generateSeed()
         set(value) {
             if(value == -1) return
